@@ -2,15 +2,23 @@
 .Navbar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
   padding: 20px;
 }
 
 .links {
-  margin-left: auto;
+  display: flex;
+  gap: 10px;
 }
 
 .mainLink {
   margin-right: 25px;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }

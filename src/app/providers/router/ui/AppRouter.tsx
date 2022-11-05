@@ -3,17 +3,17 @@ import { AppRoutes, RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import type { RouteProps } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
-import { AboutPage } from 'pages/AboutPage';
 import { PageLoader } from 'widgets/PageLoader';
+import { ContactsPage } from "pages/ContactsPage";
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutesPath.main,
     element: <MainPage />,
   },
-  [AppRoutes.ABOUT]: {
-    path: RoutesPath.about,
-    element: <AboutPage />,
+  [AppRoutes.CONTACTS]: {
+    path: RoutesPath.contacts,
+    element: <ContactsPage />,
   },
 };
 
