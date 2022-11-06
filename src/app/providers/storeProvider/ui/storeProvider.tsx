@@ -1,16 +1,17 @@
 import React from 'react';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
+import { createReduxStore } from '../config/store';
 
-interface IStoreProvider {
+interface IStoreProviderProps {
   children: React.ReactNode
 }
 
-const StoreProvider = ({children}:IStoreProvider) => {
+export const StoreProvider = ({ children }:IStoreProviderProps) => {
+  const store = createReduxStore();
+
   return (
-    <Provider store={}>
+    <Provider store={store}>
       {children}
     </Provider>
   );
 };
-
-export default StoreProvider;

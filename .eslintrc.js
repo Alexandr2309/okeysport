@@ -24,6 +24,8 @@ module.exports = {
   ],
   rules: {
     indent: [2, 2],
+    'no-param-reassign': 'off',
+    'no-restricted-syntax': 'off',
     quotes: [1, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     '@typescript-eslint/naming-convention': 'off',
     'react/jsx-indent': [2, 2],
