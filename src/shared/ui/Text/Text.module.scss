@@ -16,3 +16,9 @@
     color: var(--red-dark);
   }
 }
+
+.black {
+  .text {
+    color: var(--inverted-bg-color);
+  }
+}

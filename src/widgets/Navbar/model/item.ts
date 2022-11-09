@@ -1,4 +1,4 @@
-import { RoutesPath } from "shared/config/routeConfig/routeConfig";
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 
 export interface INavbarItem {
   text: string;
@@ -8,13 +8,18 @@ export interface INavbarItem {
 
 export const NavbarItemsList: INavbarItem[] = [
   {
+    text: 'О нас',
+    path: RoutesPath.contacts,
+    authOnly: false,
+  },
+  {
     text: 'Контакты',
     path: RoutesPath.contacts,
-    authOnly: false
+    authOnly: false,
   },
   {
     text: 'Услуги',
     path: RoutesPath.contacts,
-    authOnly: false
+    authOnly: false,
   },
-]
+];
