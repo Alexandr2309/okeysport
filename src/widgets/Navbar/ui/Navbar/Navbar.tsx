@@ -10,6 +10,7 @@ import LogoIcon from 'shared/assets/icons/logo.svg';
 import UserIcon from 'shared/assets/icons/user.svg';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Container } from 'app/providers/Layout';
 import { NavbarItemsList } from '../../model/item';
 import cls from './Navbar.module.scss';
 
@@ -22,31 +23,33 @@ export const Navbar = ({ className }: INavbarProps) => {
   const { t } = useTranslation();
 
   return (
-    <nav className={classNames(cls.Navbar, {}, [className])}>
-      <AppLink to="/" className={cls.logo}>
-        <LogoIcon />
-        <Text
-          title={t('OkeySport')}
-          className={cls.logoText}
-        />
-      </AppLink>
-      <div className={cls.links}>
-        {NavbarItemsList.map((link) => (
-          <NavbarItem item={link} />
-        ))}
-      </div>
-      <Button className={cls.auth} theme={ThemeButton.CLEAR}>
-        <UserIcon />
-        <Text
-          text={t('Вход')}
-          theme={TextTheme.BLACK}
-        />
-      </Button>
-      <Button
-        className={cls.callBtn}
-      >
-        {t('Связаться с нами')}
-      </Button>
+    <nav>
+      <Container className={classNames(cls.Navbar, {}, [className])}>
+        <AppLink to="/" className={cls.logo}>
+          <LogoIcon />
+          <Text
+            title={t('OkeySport')}
+            className={cls.logoText}
+          />
+        </AppLink>
+        <div className={cls.links}>
+          {NavbarItemsList.map((link) => (
+            <NavbarItem item={link} />
+          ))}
+        </div>
+        <Button className={cls.auth} theme={ThemeButton.CLEAR}>
+          <UserIcon />
+          <Text
+            text={t('Вход')}
+            theme={TextTheme.BLACK}
+          />
+        </Button>
+        <Button
+          className={cls.callBtn}
+        >
+          {t('Связаться с нами')}
+        </Button>
+      </Container>
     </nav>
   );
 };
