@@ -9,7 +9,7 @@ export interface INavbarItem {
 export const NavbarItemsList: INavbarItem[] = [
   {
     text: 'О нас',
-    path: RoutesPath.contacts,
+    path: RoutesPath.about,
     authOnly: false,
   },
   {
@@ -19,7 +19,7 @@ export const NavbarItemsList: INavbarItem[] = [
   },
   {
     text: 'Услуги',
-    path: RoutesPath.contacts,
+    path: RoutesPath.services,
     authOnly: false,
   },
 ];

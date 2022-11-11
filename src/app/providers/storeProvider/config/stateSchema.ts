@@ -5,9 +5,13 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { IUserSchema } from 'entities/User';
+import { IRegisterSchema } from 'pages/RegisterPage';
 
 export interface IStateSchema {
-  user: IUserSchema
+  user: IUserSchema;
+
+  // async reducers
+  register?: IRegisterSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;
@@ -20,5 +24,9 @@ export interface ReducerManager {
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<IStateSchema> {
-  reducerManager: ReducerManager
+  reducerManager: ReducerManager;
+}
+
+export interface ThunkApiConfig<T> {
+  rejectValue: T;
 }

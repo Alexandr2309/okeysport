@@ -39,7 +39,7 @@ const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
           });
       }
     };
-  }, []);
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment

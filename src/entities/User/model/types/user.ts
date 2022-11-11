@@ -1,9 +1,10 @@
 export interface IUser {
-  name: string;
-  password: string
+  id: string;
+  username: string;
+  email: string;
 }
 
 export interface IUserSchema {
   dataAuth?: IUser;
-  _initialized: boolean
+  _initialized: boolean;
 }

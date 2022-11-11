@@ -1,0 +1,36 @@
+.RegisterPage {
+
+}
+
+.inputBlock {
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 15px;
+  font: var(--font-xl);
+  font-weight: 600;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.form {
+  max-width: 60%;
+  margin: 0px auto;
+}
+
+.input {
+  border: 1px solid var(--inverted-bg-color);
+  color: var(--inverted-bg-color);
+  padding: 10px;
+}
+
+.placeholder {
+  color: var(--inverted-bg-color);
+  margin-bottom: 8px;
+  font-weight: bold;
+}

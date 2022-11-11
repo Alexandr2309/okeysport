@@ -34,7 +34,7 @@ export const Navbar = ({ className }: INavbarProps) => {
         </AppLink>
         <div className={cls.links}>
           {NavbarItemsList.map((link) => (
-            <NavbarItem item={link} />
+            <NavbarItem key={link.path} item={link} />
           ))}
         </div>
         <Button className={cls.auth} theme={ThemeButton.CLEAR}>

@@ -7,6 +7,8 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   className?: string;
   value?: string | number;
   onChange?: (value: string) => void;
+  inputClassName?: string;
+  placeholderClassName?:string
 }
 
 export const Input = (props: InputProps) => {
@@ -15,6 +17,8 @@ export const Input = (props: InputProps) => {
     placeholder,
     readonly,
     onChange,
+    inputClassName,
+    placeholderClassName,
     value,
     type,
     ...otherProps
@@ -22,7 +26,7 @@ export const Input = (props: InputProps) => {
 
   const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
-  }, []);
+  }, [onChange]);
 
   const mods = {
     [cls.readonly]: readonly,
@@ -31,13 +35,13 @@ export const Input = (props: InputProps) => {
   return (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && (
-        <div className={cls.placeholder}>
+        <div className={classNames(cls.placeholder, mods, [placeholderClassName])}>
           {placeholder}
         </div>
       )}
       <div>
         <input
-          className={cls.input}
+          className={classNames(cls.input, mods, [inputClassName])}
           type={type}
           onChange={onChangeHandler}
           value={value}

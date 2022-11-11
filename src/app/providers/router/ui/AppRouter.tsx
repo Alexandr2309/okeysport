@@ -4,7 +4,9 @@ import type { RouteProps } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { PageLoader } from 'widgets/PageLoader';
-import { ContactsPage } from "pages/ContactsPage";
+import { ContactsPage } from 'pages/ContactsPage';
+import { RegisterPage } from 'pages/RegisterPage';
+import { AboutPage } from 'pages/AboutPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
@@ -14,6 +16,18 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.CONTACTS]: {
     path: RoutesPath.contacts,
     element: <ContactsPage />,
+  },
+  [AppRoutes.SERVICES]: {
+    path: RoutesPath.services,
+    element: <MainPage />,
+  },
+  [AppRoutes.REGISTER]: {
+    path: RoutesPath.register,
+    element: <RegisterPage />,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutesPath.about,
+    element: <AboutPage />,
   },
 };
 
