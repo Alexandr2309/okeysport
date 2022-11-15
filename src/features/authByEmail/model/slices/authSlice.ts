@@ -14,6 +14,9 @@ export const authFormSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
+    setPassword: (state, action) => {
+      state.password = action.payload;
+    },
   },
 });
 

@@ -1,6 +1,7 @@
 .link {
   color: var(--inverted-bg-color);
-  &:hover {
-    text-decoration: underline;
+
+  &::before {
+    background-color: var(--inverted-bg-color);
   }
 }

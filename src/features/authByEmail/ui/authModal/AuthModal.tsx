@@ -23,7 +23,7 @@ export const AuthModal = memo((props: authModalProps) => {
       lazy
     >
       <Suspense fallback={<Loader />}>
-        <AuthFormAsync />
+        <AuthFormAsync onSuccess={onClose} />
       </Suspense>
     </Modal>
   );

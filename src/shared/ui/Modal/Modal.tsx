@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import Portal from 'shared/ui/Portal/Portal';
+import { useLocation } from 'react-router-dom';
 import cls from './Modal.module.scss';
 
 export interface ModalProps {
@@ -31,6 +32,14 @@ export const Modal = (props: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const [isMounted, setIsMounted] = useState(false);
+  const nav = useLocation();
+
+  useEffect(() => {
+    if (isOpen && isMounted) {
+      onClose?.();
+    }
+    // eslint-disable-next-line
+  }, [isOpen, nav.pathname, onClose]);
 
   const onContentClickHandler = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();

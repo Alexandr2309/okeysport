@@ -1,5 +1,5 @@
 .authForm {
-  //border-radius: 20px;
+  // border-radius: 20px;
   display: flex;
   flex-direction: column;
   width: 40vw;
@@ -19,7 +19,17 @@
   padding: 10px;
 }
 
-.btn {
-  margin-left: auto;
+.register {
+  font: var(--font-accent);
+}
+
+.footer {
   margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  font: var(--font-accent);
 }

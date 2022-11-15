@@ -9,7 +9,7 @@
 
 .links {
   display: flex;
-  gap: 10px;
+  gap: 25px;
   flex-grow: 1;
 }
 
@@ -22,6 +22,10 @@
   gap: 10px;
   align-items: center;
   flex-grow: 1;
+
+  &::before {
+    background-color: inherit;
+  }
 }
 
 .auth {
@@ -34,18 +38,18 @@
 .callBtn {
   color: var(--inverted-bg-color);
   font-weight: 400;
+
   &:hover {
     transform: translate3d(0, 1px, 0);
   }
+
   margin-left: 15px;
 }
 
-.logoText > p{
+.logoText > p {
   font-weight: 700;
 }
 
 .loginBtn {
-  color: var(--inverted-bg-color);
-  font-weight: 700;
-  padding: 0px 8px;
+  margin-left: 25px;
 }

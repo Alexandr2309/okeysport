@@ -1,19 +1,19 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
+import { ISidebarItem } from '../../model/item';
 import cls from './SidebarItem.module.scss';
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { ISidebarItem } from "../../model/item";
-import { useTranslation } from "react-i18next";
 
 export interface SidebarItemProps {
   collapsed: boolean;
   item: ISidebarItem;
 }
 
-export const SidebarItem = ( { item, collapsed }: SidebarItemProps ) => {
-  const {t} = useTranslation();
+export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
+  const { t } = useTranslation();
 
   const mods = {
-    [cls.collapsed]: collapsed
+    [cls.collapsed]: collapsed,
   };
 
   return (
@@ -21,7 +21,7 @@ export const SidebarItem = ( { item, collapsed }: SidebarItemProps ) => {
       className={classNames(cls.SidebarItem, mods, [])}
       to={item.path}
     >
-    <item.Icon className={cls.icon}/>
+      <item.Icon className={cls.icon} />
       <span className={cls.link}>
         {t(item.text)}
       </span>

@@ -7,41 +7,39 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useMemo, useState } from 'react';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { useTranslation } from 'react-i18next';
+import { SidebarItemsList } from 'widgets/Sidebar/model/item';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
-import { SidebarItemsList } from "widgets/Sidebar/model/item";
-import { SidebarItem } from "widgets/Sidebar/ui/SidebarItem/SidebarItem";
 
 type ISidebarProps = {
   className?: string;
 };
 
-export const Sidebar = ( { className }: ISidebarProps ) => {
-  const [ collapsed, setCollapsed ] = useState(false);
+export const Sidebar = ({ className }: ISidebarProps) => {
+  const [collapsed, setCollapsed] = useState(false);
   const { t } = useTranslation();
 
   const toggleCollapse = () => {
-    setCollapsed(( prev ) => !prev);
+    setCollapsed((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => {
-    return SidebarItemsList.map(( item ) => (
-      <SidebarItem
-        key={item.path}
-        collapsed={collapsed}
-        item={item}
-      />
-    ))
-  }, []);
+  const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+    <SidebarItem
+      key={item.path}
+      collapsed={collapsed}
+      item={item}
+    />
+  )), [collapsed]);
 
   return (
-    <div className={classNames(cls.Sidebar, { [ cls.collapsed ]: collapsed }, [ className ])}>
+    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
       <Button onClick={toggleCollapse}>{t('Расскрыть')}</Button>
       <div className={cls.items}>
         {itemsList}
       </div>
       <div className={cls.switchers}>
-        <ThemeSwitcher/>
-        <LangSwitcher className={cls.lang}/>
+        <ThemeSwitcher />
+        <LangSwitcher className={cls.lang} />
       </div>
     </div>
   );

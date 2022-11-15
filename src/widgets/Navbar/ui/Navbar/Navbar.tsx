@@ -48,15 +48,17 @@ export const Navbar = ({ className }: INavbarProps) => {
             <NavbarItem key={link.path} item={link} />
           ))}
         </div>
-        <AppLink
-          to="/register"
+        <div
           className={cls.auth}
         >
           <UserIcon />
-          <Button className={cls.loginBtn}>
+          <Button
+            onClick={onShowModal}
+            className={cls.loginBtn}
+          >
             {t('Вход')}
           </Button>
-        </AppLink>
+        </div>
       </Container>
       {isAuthModal && (
         <AuthModal

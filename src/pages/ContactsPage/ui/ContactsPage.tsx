@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const ContactsPage = () => {
-  const {t} = useTranslation('contact');
+  const { t } = useTranslation('contact');
 
   return (
     <div>

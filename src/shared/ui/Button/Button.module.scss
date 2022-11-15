@@ -2,12 +2,34 @@
   color: var(--bg-color);
   cursor: pointer;
   border: none;
-  background: linear-gradient(90deg, #00C97B 0%, #00D981 96.96%);
-  box-shadow: 0 4px 4px rgba(1, 203, 124, 0.2);
+  background: linear-gradient(90deg, #00c97b 0%, #00d981 96.96%);
+  box-shadow: 0 4px 4px rgb(1 203 124 / 20%);
   border-radius: 36px;
   padding: 16px 32px;
   font-weight: 700;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(255 255 255 / 30%);
+    border-radius: 5px;
+    transition: all 1s ease;
+  }
+
+  &:hover {
+    transform: scale(0.975);
+
+    &::before {
+      width: 100%;
+    }
+  }
 }
 
 .clear {
@@ -19,5 +41,3 @@
   font-weight: 400;
   box-shadow: none;
 }
-
-
