@@ -18,13 +18,13 @@ export const registerSlice = createSlice({
       state.username = action.payload;
     },
     setPassword: (state, action) => {
-      state.username = action.payload;
+      state.password = action.payload;
     },
     setVerifiedPassword: (state, action) => {
       state.verifiedPassword = action.payload;
     },
     setEmail: (state, action) => {
-      state.username = action.payload;
+      state.email = action.payload;
     },
   },
 });

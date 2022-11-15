@@ -1,5 +1,5 @@
-import React from "react";
-import { RoutesPath } from "shared/config/routeConfig/routeConfig";
+import React from 'react';
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/home.svg';
 
 export interface ISidebarItem {
@@ -14,4 +14,4 @@ export const SidebarItemsList: ISidebarItem[] = [
     Icon: MainIcon,
     text: 'Главная',
   },
-]
+];

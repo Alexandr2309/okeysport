@@ -5,28 +5,29 @@ import cls from './Button.module.scss';
 
 export enum ThemeButton {
   CLEAR = 'clear',
+  OUTLINED = 'outlined',
+  DEFAULT = ''
 }
 
 export type IButtonProps = {
   className?: string;
-  theme?: string;
+  theme?: ThemeButton;
   type?: 'button' | 'reset' | 'submit'
 } & HTMLProps<HTMLButtonElement>;
 
-export const Button: FC<IButtonProps> = ( props ) => {
+export const Button: FC<IButtonProps> = (props) => {
   const {
     className,
     children,
-    theme,
-    type = 'button',
+    theme = ThemeButton.DEFAULT,
     ...otherProps
   } = props;
 
   return (
     <button
       {...otherProps}
-      type={type}
-      className={classNames(cls.Button, {}, [ className, cls[ theme ] ])}
+      type="button"
+      className={classNames(cls.Button, {}, [className, cls[theme]])}
     >
       {children}
     </button>

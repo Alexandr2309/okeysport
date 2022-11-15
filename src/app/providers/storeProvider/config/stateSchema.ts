@@ -5,13 +5,15 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { IUserSchema } from 'entities/User';
-import { IRegisterSchema } from 'pages/RegisterPage';
+import { IAuthSchema } from 'features/authByEmail';
+import { IRegisterSchema } from 'features/registerByEmail';
 
 export interface IStateSchema {
   user: IUserSchema;
 
   // async reducers
   register?: IRegisterSchema;
+  authForm?: IAuthSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;

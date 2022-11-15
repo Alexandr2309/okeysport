@@ -1,0 +1,25 @@
+.authForm {
+  //border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.input {
+  margin-top: 10px;
+}
+
+.placeholder {
+  margin-bottom: 6px;
+}
+
+.inputField {
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn {
+  margin-left: auto;
+  margin-top: 15px;
+}

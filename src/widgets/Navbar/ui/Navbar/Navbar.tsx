@@ -11,6 +11,8 @@ import UserIcon from 'shared/assets/icons/user.svg';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Container } from 'app/providers/Layout';
+import { useCallback, useState } from 'react';
+import { AuthModal } from 'features/authByEmail';
 import { NavbarItemsList } from '../../model/item';
 import cls from './Navbar.module.scss';
 
@@ -21,6 +23,15 @@ type INavbarProps = {
 export const Navbar = ({ className }: INavbarProps) => {
   const { toggleTheme } = useTheme();
   const { t } = useTranslation();
+  const [isAuthModal, setIsAuthModal] = useState(false);
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true);
+  }, []);
+
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
 
   return (
     <nav>
@@ -37,19 +48,22 @@ export const Navbar = ({ className }: INavbarProps) => {
             <NavbarItem key={link.path} item={link} />
           ))}
         </div>
-        <Button className={cls.auth} theme={ThemeButton.CLEAR}>
-          <UserIcon />
-          <Text
-            text={t('Вход')}
-            theme={TextTheme.BLACK}
-          />
-        </Button>
-        <Button
-          className={cls.callBtn}
+        <AppLink
+          to="/register"
+          className={cls.auth}
         >
-          {t('Связаться с нами')}
-        </Button>
+          <UserIcon />
+          <Button className={cls.loginBtn}>
+            {t('Вход')}
+          </Button>
+        </AppLink>
       </Container>
+      {isAuthModal && (
+        <AuthModal
+          isOpen={isAuthModal}
+          onClose={onCloseModal}
+        />
+      )}
     </nav>
   );
 };

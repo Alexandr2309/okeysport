@@ -8,16 +8,16 @@ import 'app/providers/firebase/config/firebase';
 import App from './app/App';
 import 'shared/config/i18n/i18n';
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root')!);
 
 root.render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ThemeContextProvider>
         <ErrorBoundary>
           <App />
         </ErrorBoundary>
       </ThemeContextProvider>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
 );

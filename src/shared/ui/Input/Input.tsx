@@ -1,5 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import React, { HTMLProps, InputHTMLAttributes, useCallback } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import React, {
+  HTMLProps, InputHTMLAttributes, memo, useCallback,
+} from 'react';
 import cls from './Input.module.scss';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> {
@@ -11,7 +13,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   placeholderClassName?:string
 }
 
-export const Input = (props: InputProps) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     placeholder,
@@ -28,7 +30,7 @@ export const Input = (props: InputProps) => {
     onChange?.(e.target.value);
   }, [onChange]);
 
-  const mods = {
+  const mods: Mods = {
     [cls.readonly]: readonly,
   };
 
@@ -51,4 +53,4 @@ export const Input = (props: InputProps) => {
       </div>
     </div>
   );
-};
+});

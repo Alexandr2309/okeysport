@@ -25,12 +25,15 @@
 }
 
 .auth {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
 .callBtn {
+  color: var(--inverted-bg-color);
+  font-weight: 400;
   &:hover {
     transform: translate3d(0, 1px, 0);
   }
@@ -39,4 +42,10 @@
 
 .logoText > p{
   font-weight: 700;
+}
+
+.loginBtn {
+  color: var(--inverted-bg-color);
+  font-weight: 700;
+  padding: 0px 8px;
 }

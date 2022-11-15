@@ -29,7 +29,7 @@ export const Modal = (props: ModalProps) => {
     isOpen,
   } = props;
   const [isClosing, setIsClosing] = useState(false);
-  const timerRef = useRef(null) as MutableRefObject<ReturnType<typeof setTimeout>>;
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const [isMounted, setIsMounted] = useState(false);
 
   const onContentClickHandler = useCallback((e: React.MouseEvent) => {
@@ -64,7 +64,7 @@ export const Modal = (props: ModalProps) => {
     }
 
     return () => {
-      timerRef.current = null;
+      clearTimeout(timerRef.current);
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);

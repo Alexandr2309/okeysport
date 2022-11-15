@@ -1,22 +1,30 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, MouseEventHandler, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Container } from 'app/providers/Layout';
 import { Button } from 'shared/ui/Button/Button';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import DynamicModuleLoader, {
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import {
-  getRegisterEmail, getRegisterError, getRegisterIsLoading,
+  getRegisterEmail,
+  getRegisterError,
+  getRegisterIsLoading,
   getRegisterPassword,
-  getRegisterUsername, getRegisterVerifiedPassword,
-} from 'pages/RegisterPage/model/selectors/getRegisterData';
+  getRegisterUsername,
+  getRegisterVerifiedPassword,
+} from 'features/registerByEmail/model/selectors/getRegisterData';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  registerActions,
+  registerReducer,
+} from 'features/registerByEmail/model/slices/registerSlice';
+import {
+  registerUserByEmail,
+} from 'features/registerByEmail/model/services/registerUserByEmail/registerUserByEmail';
 import cls from './RegisterPage.module.scss';
-import { registerActions, registerReducer } from '../model/slices/registerSlice';
 
 export interface RegisterPageProps {
   className?: string;
@@ -39,7 +47,8 @@ const RegisterPage = memo(({ className }: RegisterPageProps) => {
 
   const onRegisterHandler = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-  }, []);
+    dispatch(registerUserByEmail({ username, password, email }));
+  }, [dispatch, email, password, username]);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(registerActions.setUsername(value));
