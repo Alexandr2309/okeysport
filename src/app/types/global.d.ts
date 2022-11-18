@@ -6,7 +6,7 @@ declare module '*.scss' {
 
 declare module '*.jpg'
 declare module '*.jpeg'
-declare module '*.pnh'
+declare module '*.png'
 declare module '*.svg' {
   import type React from 'react';
 

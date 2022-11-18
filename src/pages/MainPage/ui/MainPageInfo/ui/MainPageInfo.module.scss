@@ -1,0 +1,25 @@
+.MainPageInfo {
+  margin-top: 100px;
+}
+
+.title p{
+  font: var(--font-x);
+  font-weight: 600;
+}
+
+.subTitle p{
+  font: var(--font-m);
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.btn {
+  margin: 65px 0 100px 0;
+}

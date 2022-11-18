@@ -1,0 +1,40 @@
+.MainPageServiceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 90px;
+}
+
+.infoWrapper {
+
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.num {
+  padding-right: 39px;
+  position: relative;
+  & p {
+    font: var(--font-ultra);
+    color: var(--inverted-primary-color);
+  }
+
+  &::after {
+    content: '';
+    height: 100%;
+    width: 1px;
+    background-color: #C0C9D7;
+    position: absolute;
+    right: 0;
+    top: 0;
+    //transform: rotate(90deg);
+  }
+}
+
+.title {
+  margin-left: 37px;
+}

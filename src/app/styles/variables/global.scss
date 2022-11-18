@@ -1,17 +1,24 @@
 :root {
-  --font-family-main: consolas, "Times New Roman", serif;
-  --font-size-m: 16px;
-  --font-line-m: 24px;
+  --font-family-main: "Montserrat";
+  --font-size-m: 20px;
+  --font-line-m: 35px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
   --font-size-accent: 18px;
-  --font-line-accent: 26px;
+  --font-line-accent: 35px;
   --font-accent: var(--font-size-accent) / var(--font-line-accent) var(--font-family-main);
-  --font-size-l: 24px;
-  --font-line-l: 32px;
+  --font-size-l: 25px;
+  --font-line-l: 30px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-  --font-size-xl: 32px;
-  --font-line-xl: 40px;
+  --font-size-x: 44px;
+  --font-line-x: 50px;
+  --font-x: var(--font-size-x) / var(--font-line-x) var(--font-family-main);
+  --font-size-xl: 52px;
+  --font-line-xl: 70px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --font-size-ultra: 80px;
+  --font-line-ultra: 56px;
+  --font-ultra: var(--font-size-ultra) / var(--font-line-ultra) var(--font-family-main);
+
 
   /* Размеры */
 

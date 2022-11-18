@@ -1,0 +1,42 @@
+.MainPageBanner {
+  padding: 0 60px;
+}
+
+.gradientWrapper {
+  background: linear-gradient(79.63deg, #585EAB 1.08%, #66E7B4 100%);
+  border-radius: 36px;
+}
+
+.contentWrapper {
+  position: relative;
+  padding: 110px 0;
+
+}
+
+.title p,
+.text p {
+  color: #fff;
+}
+
+.text p {
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.title p {
+  font: var(--font-xl);
+  font-weight: 600;
+}
+
+.textWrapper {
+  max-width: 50%;
+}
+
+.bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
