@@ -1,0 +1,51 @@
+.Footer {
+  background-color: var(--footer-bg);
+}
+
+.footerWrapper{
+  padding-top: 119px;
+  padding-bottom: 119px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &::before {
+    background-color: inherit;
+  }
+}
+
+.logoText > p {
+  font-weight: 700;
+  color: #fff;
+}
+
+.locationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.locationText {
+  max-width: 350px;
+  & > p {
+    color: #fff;
+    font: var(--font-m);
+  }
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+}
+
+.infoItemText > p {
+  color: #fff;
+}

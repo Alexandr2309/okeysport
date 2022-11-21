@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { IPageData } from 'shared/const/page/model';
+import { IPageData } from 'shared/const/page/mainPage/model';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './MainPageServiceItem.module.scss';
 

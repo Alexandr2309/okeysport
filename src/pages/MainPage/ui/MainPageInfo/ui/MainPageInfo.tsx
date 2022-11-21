@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { IPageData } from 'shared/const/page/model';
+import { IPageData } from 'shared/const/page/mainPage/model';
 import { MainPageServiceItem } from 'pages/MainPage/ui/MainPageServiceItem/MainPageServiceItem';
 import { mainPageData } from 'shared/const/page';
 import { Button } from 'shared/ui/Button/Button';

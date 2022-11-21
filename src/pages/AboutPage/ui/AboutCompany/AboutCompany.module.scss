@@ -1,0 +1,21 @@
+.AboutCompany {
+ & p {
+   color: #000000;
+   font: var(--font-m)
+ }
+}
+
+.bold > p{
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.images {
+  display: flex;
+  gap: 30px;
+  margin: 55px 0 70px 0;
+}
+
+.img {
+  max-width: 100%;
+}

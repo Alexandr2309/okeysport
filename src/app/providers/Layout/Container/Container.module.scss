@@ -1,5 +1,6 @@
 .Container {
   margin: 0px auto;
+  padding: 0 40px;
 }
 
 @media (min-width: 320px) {
@@ -11,13 +12,11 @@
 }
 
 @media (min-width: 1000px) {
-  .Container {
-    padding: 0 40px;
-  }
+
 }
 
 @media (min-width: 1440px) {
   .Container {
-    max-width: 1480px;
+    max-width: 1440px;
   }
 }

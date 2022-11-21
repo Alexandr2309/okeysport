@@ -7,6 +7,7 @@ import { PageLoader } from 'widgets/PageLoader';
 import { ContactsPage } from 'pages/ContactsPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { AboutPage } from 'pages/AboutPage';
+import { NewsPage } from 'pages/NewsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
@@ -28,6 +29,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ABOUT]: {
     path: RoutesPath.about,
     element: <AboutPage />,
+  },
+  [AppRoutes.NEWS]: {
+    path: RoutesPath.news,
+    element: <NewsPage />,
   },
 };
 
