@@ -1,8 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Banner } from 'shared/ui/Banner/Banner';
-import { Text } from 'shared/ui/Text/Text';
 import { AboutCompany } from 'pages/AboutPage/ui/AboutCompany/AboutCompany';
 import { Container } from 'app/providers/Layout';
 import { AboutGoals } from 'pages/AboutPage/ui/AboutGoals/AboutGoals';

@@ -1,0 +1,30 @@
+.ServiceItem {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.imageWrapper,
+.infoWrapper {
+  flex: 1 1 auto;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.text {
+  flex: 1 1 auto;
+}
+
+.link {
+  font: var(--font-accent);
+  color: var(--accent-green);
+  font-weight: 700;
+}

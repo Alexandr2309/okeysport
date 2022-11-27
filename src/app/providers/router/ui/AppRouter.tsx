@@ -8,6 +8,7 @@ import { ContactsPage } from 'pages/ContactsPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NewsPage } from 'pages/NewsPage';
+import { ServicesPage } from 'pages/ServicesPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
@@ -20,7 +21,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.SERVICES]: {
     path: RoutesPath.services,
-    element: <MainPage />,
+    element: <ServicesPage />,
   },
   [AppRoutes.REGISTER]: {
     path: RoutesPath.register,

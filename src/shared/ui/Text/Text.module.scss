@@ -1,6 +1,6 @@
 .title {
   color: var(--primary-color);
-  font: var(--font-l)
+  font: var(--font-l);
 }
 
 .text {
@@ -12,7 +12,8 @@
   .title {
     color: var(--red-light);
   }
-  .text{
+
+  .text {
     color: var(--red-dark);
   }
 }

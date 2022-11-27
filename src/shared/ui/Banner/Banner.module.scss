@@ -1,7 +1,8 @@
 .Banner {
   padding: 0 60px;
-
+  margin-bottom: 100px;
 }
+
 .gradientWrapper {
   background: linear-gradient(79.63deg, #585EAB 1.08%, #66E7B4 100%);
   border-radius: 36px;
@@ -9,4 +10,6 @@
 
 .contentWrapper {
   position: relative;
+  padding-top: 54px;
+  padding-bottom: 54px;
 }
