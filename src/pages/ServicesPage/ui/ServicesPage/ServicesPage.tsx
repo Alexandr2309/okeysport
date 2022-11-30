@@ -1,4 +1,3 @@
-import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Services } from '../Services';
 import { Championship } from '../Championship/Championship';
@@ -22,7 +21,6 @@ const ServicesPage = (props: IServicesPageProps) => {
       <Tournaments />
       <Competitions />
       <Olympics />
-      <
     </section>
   );
 };

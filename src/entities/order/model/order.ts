@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IOrderSchema, TypeEvents } from './model';
+import { IOrderSchema } from './model';
+import { TypeEvents } from 'entities/events';
 
 const initialState: IOrderSchema = {
   type: TypeEvents.CHAMPIONSHIP,
@@ -9,7 +10,7 @@ const initialState: IOrderSchema = {
   phone: '',
 };
 
-const orderModel = createSlice({
+export const orderModel = createSlice({
   name: 'order',
   initialState,
   reducers: {

@@ -4,11 +4,9 @@ import cls from './Card.module.scss';
 
 export interface CardProps {
   className?: string;
-  children: ReactNode
+  children: ReactNode;
 }
 
 export const Card = ({ className, children }: CardProps) => (
-  <div className={classNames(cls.Card, {}, [className])}>
-    {children}
-  </div>
+  <div className={classNames(cls.Card, {}, [className])}>{children}</div>
 );

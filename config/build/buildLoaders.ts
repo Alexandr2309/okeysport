@@ -2,7 +2,9 @@ import type webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import type { IBuildOptions } from './types/config';
 
-export default function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
+export default function buildLoaders({
+  isDev,
+}: IBuildOptions): webpack.RuleSetRule[] {
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -33,7 +35,8 @@ export default function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetR
               keyAsDefaultValue: true,
             },
           ],
-        ],
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
       },
     },
   };

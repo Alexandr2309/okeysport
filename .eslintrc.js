@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: {
     browser: true,
@@ -5,26 +6,23 @@ module.exports = {
     jest: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
-    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
     'plugin:react-hooks/recommended',
     'plugin:i18next/recommended',
   ],
+  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next',
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
   rules: {
     indent: [2, 2],
+    'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',
     'no-restricted-syntax': 'off',
@@ -36,7 +34,6 @@ module.exports = {
     '@typescript-eslint/indent': [2, 2],
     'react/jsx-props-no-spreading': 'warn',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/require-default-props': 'off',
     'no-unused-vars': 'warn',
     'no-shadow': 'off',
@@ -46,14 +43,14 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-promise-executor-return': 'warn',
     'no-underscore-dangle': 'warn',
-    'import/no-extraneous-dependencies': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-    indent: [2, 2],
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
     'no-dupe-keys': 'warn',
+    'prettier/prettier': 'error',
+    'react/prop-types': 0,
   },
   globals: {
     __IS__DEV__: true,

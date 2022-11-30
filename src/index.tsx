@@ -11,13 +11,13 @@ import 'shared/config/i18n/i18n';
 const root = createRoot(document.getElementById('root')!);
 
 root.render(
-  <BrowserRouter>
-    <StoreProvider>
+  <StoreProvider>
+    <BrowserRouter>
       <ThemeContextProvider>
         <ErrorBoundary>
           <App />
         </ErrorBoundary>
       </ThemeContextProvider>
-    </StoreProvider>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </StoreProvider>
 );

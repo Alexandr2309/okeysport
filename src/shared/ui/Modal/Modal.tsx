@@ -22,13 +22,7 @@ export interface ModalProps {
 const ANIMATE_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    lazy,
-    onClose,
-    isOpen,
-  } = props;
+  const { className, children, lazy, onClose, isOpen } = props;
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const [isMounted, setIsMounted] = useState(false);
@@ -61,11 +55,14 @@ export const Modal = (props: ModalProps) => {
     }
   }, [isOpen]);
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onCloseHandler();
-    }
-  }, [onCloseHandler]);
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onCloseHandler();
+      }
+    },
+    [onCloseHandler]
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -91,10 +88,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={onCloseHandler}>
-          <div
-            className={cls.content}
-            onClick={onContentClickHandler}
-          >
+          <div className={cls.content} onClick={onContentClickHandler}>
             {children}
           </div>
         </div>

@@ -1,0 +1,21 @@
+.Select {
+  border: 1px solid #c0c9d7;
+  border-radius: 6px;
+  padding: 12px 20px 12px 15px;
+  font: 16px/36px var(--font-family-main);
+  font-weight: 700;
+  color: rgb(0 0 0 / 50%);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  background: #fcfdff url("./chevron_select.svg") calc(100% - 15px) 50% / 9px 4.5px no-repeat;
+
+  &:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px var(--accent-green);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+  }
+}
