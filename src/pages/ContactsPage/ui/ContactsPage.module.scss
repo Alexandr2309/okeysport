@@ -1,0 +1,36 @@
+.ContactsPage {
+  margin-bottom: 36px;
+}
+
+.bannerTitle > p {
+  color: var(--secondary-color);
+  font: var(--font-xl);
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.map {
+flex: 1 1 50%;
+}
+
+.textWrapper {
+  flex: 1 1 50%;
+}
+
+.title {
+  margin-bottom: 25px;
+  & > p {
+    color: var(--primary-color);
+    font: var(--font-m);
+  }
+  & > p:first-child {
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+}

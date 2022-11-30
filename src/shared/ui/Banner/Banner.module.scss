@@ -12,4 +12,11 @@
   position: relative;
   padding-top: 54px;
   padding-bottom: 54px;
+
+  & p {
+    color: var(--secondary-color);
+    font: var(--font-xl);
+    font-weight: 600;
+    font-style: italic;
+  }
 }

@@ -12,10 +12,13 @@ body {
 .App {
   color: var(--primary-color);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-page {
   display: flex;
+  flex-grow: 1;
 }
 
 .page-wrapper {

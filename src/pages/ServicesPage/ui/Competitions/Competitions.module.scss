@@ -1,0 +1,10 @@
+.paragraph {
+  margin-bottom: 20px;
+  & > p {
+    color: var(--primary-color);
+  }
+}
+
+.banner {
+  margin: 100px 0 60px;
+}

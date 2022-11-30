@@ -30,6 +30,7 @@ export const ServiceItem = memo((props: IServiceItem) => {
           className={cls.title}
         />
         <Text
+          className={cls.text}
           text={t(service.text)}
         />
         <AppLink

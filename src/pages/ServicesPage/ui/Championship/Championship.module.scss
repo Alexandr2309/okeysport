@@ -1,0 +1,21 @@
+.Championship {
+  color: var(--primary-color);
+}
+
+.banner {
+  margin: 100px 0 60px;
+}
+
+.list {
+  list-style-type: decimal;
+}
+
+.listTitle > p {
+  font-weight: 600;
+  color: var(--primary-color)
+}
+
+.footer > p{
+  color: var(--primary-color);
+  margin-top: 20px;
+}
