@@ -19,3 +19,4 @@ const NewsPage = memo((props: NewsPageProps) => {
 });
 
 export default NewsPage;
+NewsPage.displayName = 'NewsPage';

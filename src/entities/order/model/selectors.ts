@@ -13,5 +13,5 @@ export const getAllOrderData = createSelector(
   getPhone,
   getComment,
   getEventType,
-  (...args) => ({ ...args })
+  (name, email, phone, comment, type) => ({ name, email, phone, comment, type })
 );

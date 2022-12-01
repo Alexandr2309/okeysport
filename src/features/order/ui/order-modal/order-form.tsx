@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/ui/Input/Input';
-import { ChangeEvent, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
   getComment,
@@ -20,6 +20,7 @@ import DynamicModuleLoader, {
 import { SendOrder } from 'features/send-order';
 import cls from './styles.module.scss';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
+import { Text } from 'shared/ui/Text/Text';
 
 export interface OrderFormProps {
   className?: string;
@@ -78,42 +79,59 @@ const OrderForm = (props: OrderFormProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <form className={classNames(cls.OrderForm, {}, [className])}>
-        <Input
-          type='text'
-          value={name}
-          className={cls.inp}
-          onChange={onChangeName}
-          placeholder={t('Имя')}
-        />
-        <Input
-          type='text'
-          value={phone}
-          className={cls.inp}
-          onChange={onChangePhone}
-          placeholder={t('Номер телефона')}
-        />
-        <Input
-          type='text'
-          value={email}
-          className={cls.inp}
-          onChange={onChangeEmail}
-          placeholder={t('Электронная почта')}
-        />
-        <EventsSelect
-          value={eventType}
-          className={cls.select}
-          onChange={onChangeType}
-        />
-        <TextArea
-          value={comment}
-          className={cls.textarea}
-          onChange={onChangeComment}
-          placeholder={t('Комментарий')}
-        />
-        <SendOrder>{t('Оставить заявку')}</SendOrder>
+        <OrderFormHeader />
+        <div className={cls.formContent}>
+          <Input
+            type='text'
+            value={name}
+            className={cls.inp}
+            onChange={onChangeName}
+            placeholder={t('Имя')}
+          />
+          <Input
+            type='text'
+            value={phone}
+            className={cls.inp}
+            onChange={onChangePhone}
+            placeholder={t('Номер телефона')}
+          />
+          <Input
+            type='text'
+            value={email}
+            className={cls.inp}
+            onChange={onChangeEmail}
+            placeholder={t('Электронная почта')}
+          />
+          <EventsSelect
+            value={eventType}
+            className={cls.select}
+            onChange={onChangeType}
+          />
+          <TextArea
+            value={comment}
+            className={cls.textarea}
+            onChange={onChangeComment}
+            placeholder={t('Комментарий')}
+          />
+        </div>
+        <SendOrder className={cls.send}>{t('Оставить заявку')}</SendOrder>
       </form>
     </DynamicModuleLoader>
   );
 };
 
 export default memo(OrderForm);
+
+export function OrderFormHeader() {
+  const { t } = useTranslation();
+
+  return (
+    <Text
+      title={t('Заявка на участие в спортивном мероприятии')}
+      text={t(
+        'Отправьте запрос на участие или проведение спортивного мероприятия для вашей команды и мы обязательно свяжемся с вами в ближайшее время.'
+      )}
+      className={cls.header}
+    />
+  );
+}

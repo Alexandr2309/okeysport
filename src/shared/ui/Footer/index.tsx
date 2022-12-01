@@ -22,12 +22,9 @@ export const Footer = memo((props: FooterProps) => {
   return (
     <footer className={classNames(cls.Footer, {}, [className])}>
       <Container className={cls.footerWrapper}>
-        <AppLink to="/" className={cls.logo}>
+        <AppLink to='/' className={cls.logo}>
           <LogoIcon />
-          <Text
-            title={t('OkeySport')}
-            className={cls.logoText}
-          />
+          <Text title={t('OkeySport')} className={cls.logoText} />
         </AppLink>
         <div className={cls.locationWrapper}>
           <Icon Svg={HomeIcon} />
@@ -39,20 +36,16 @@ export const Footer = memo((props: FooterProps) => {
         <div className={cls.infoWrapper}>
           <div className={[cls.telephone, cls.infoItem].join(' ')}>
             <Icon Svg={PhoneIcon} />
-            <Text
-              text="+ 7 (926) 425 78 45"
-              className={cls.infoItemText}
-            />
+            <Text text='+ 7 (926) 425 78 45' className={cls.infoItemText} />
           </div>
           <div className={[cls.mail, cls.infoItem].join(' ')}>
             <Icon Svg={MailIcon} />
-            <Text
-              text="okeysport@mail.ru"
-              className={cls.infoItemText}
-            />
+            <Text text='okeysport@mail.ru' className={cls.infoItemText} />
           </div>
         </div>
       </Container>
     </footer>
   );
 });
+
+Footer.displayName = 'Footer';

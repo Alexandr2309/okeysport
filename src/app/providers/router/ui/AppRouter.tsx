@@ -9,6 +9,7 @@ import { RegisterPage } from 'pages/RegisterPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NewsPage } from 'pages/NewsPage';
 import { ServicesPage } from 'pages/ServicesPage';
+import { RequestsPage } from 'pages/RequestsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
@@ -35,6 +36,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutesPath.news,
     element: <NewsPage />,
   },
+  [AppRoutes.REQUESTS]: {
+    path: RoutesPath.requests,
+    element: <RequestsPage />,
+  },
 };
 
 export const AppRouter = () => (
@@ -43,13 +48,11 @@ export const AppRouter = () => (
       <Route
         key={path}
         path={path}
-        element={(
+        element={
           <Suspense fallback={<PageLoader />}>
-            <div className="page-wrapper">
-              {element}
-            </div>
+            <div className='page-wrapper'>{element}</div>
           </Suspense>
-        )}
+        }
       />
     ))}
   </Routes>

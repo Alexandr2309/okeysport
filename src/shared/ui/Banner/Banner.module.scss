@@ -4,7 +4,7 @@
 }
 
 .gradientWrapper {
-  background: linear-gradient(79.63deg, #585EAB 1.08%, #66E7B4 100%);
+  background: linear-gradient(79.63deg, #585eab 1.08%, #66e7b4 100%);
   border-radius: 36px;
 }
 
@@ -12,11 +12,10 @@
   position: relative;
   padding-top: 54px;
   padding-bottom: 54px;
+}
 
-  & p {
-    color: var(--secondary-color);
-    font: var(--font-xl);
-    font-weight: 600;
-    font-style: italic;
+@media (max-width: 1600px) {
+  .Banner {
+    padding: 0;
   }
 }

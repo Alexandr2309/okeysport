@@ -3,8 +3,7 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { getAuth } from 'firebase/auth';
-import { Footer } from 'widgets/Footer';
+import { Footer } from 'shared/ui/Footer';
 
 export default function App() {
   const { theme } = useTheme();
@@ -12,8 +11,8 @@ export default function App() {
   return (
     <div className={classNames('App', {}, [theme])}>
       <Navbar />
-      <Suspense fallback="">
-        <div className="content-page">
+      <Suspense fallback=''>
+        <div className='content-page'>
           <AppRouter />
         </div>
       </Suspense>

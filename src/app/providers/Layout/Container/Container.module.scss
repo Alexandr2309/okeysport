@@ -1,22 +1,24 @@
 .Container {
   margin: 0px auto;
   padding: 0 40px;
+  max-width: 1440px;
 }
 
-@media (min-width: 320px) {
-
-}
-
-@media (min-width: 640px) {
-
-}
-
-@media (min-width: 1000px) {
-
-}
-
-@media (min-width: 1440px) {
+@media (max-width: 1279px) {
   .Container {
-    max-width: 1440px;
+    max-width: unset;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 719px) {
+  .Container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 374px) {
+  .Container {
+    padding: 0 15px;
   }
 }

@@ -17,7 +17,8 @@ export const TextArea = memo((props: TextAreaProps) => {
   const { className, placeholder, onChange, value } = props;
 
   const onChangeHandler = (e: ChangeEvent) => {
-    onChange?.(e.target.textContent || '');
+    // @ts-ignore
+    onChange?.(e.target.value || '');
   };
 
   return (

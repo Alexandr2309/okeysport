@@ -19,7 +19,10 @@ export const SendOrder = (props: ISendOrderProps) => {
   }, [dispatch]);
 
   return (
-    <Button onClick={onSendOrder} className={classNames(cls.root, {}, [])}>
+    <Button
+      onClick={onSendOrder}
+      className={classNames(cls.root, {}, [className])}
+    >
       {children}
     </Button>
   );

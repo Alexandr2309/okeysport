@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import CupImg from 'shared/assets/images/cup.png';
 import { Banner } from 'shared/ui/Banner/Banner';
 import cls from './MainPageBanner.module.scss';
+import { SendOrder } from 'features/send-order';
 
 export interface MainPageBannerProps {
   className?: string;
@@ -18,16 +19,10 @@ export const MainPageBanner = memo((props: MainPageBannerProps) => {
   return (
     <Banner wrapperCls={cls.contentWrapper}>
       <div className={cls.textWrapper}>
-        <Text
-          title={mainPageBannerData.title}
-          className={cls.title}
-        />
-        <Text
-          text={mainPageBannerData.text}
-          className={cls.text}
-        />
+        <Text title={mainPageBannerData.title} className={cls.title} />
+        <Text text={mainPageBannerData.text} className={cls.text} />
       </div>
-      <Button>{t('Организовать турнир')}</Button>
+      <SendOrder className={cls.sendBtn}>{t('Организовать турнир')}</SendOrder>
       <div
         className={cls.bg}
         style={{
@@ -38,3 +33,5 @@ export const MainPageBanner = memo((props: MainPageBannerProps) => {
     </Banner>
   );
 });
+
+MainPageBanner.displayName = 'MainPageBanner';
