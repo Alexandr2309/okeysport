@@ -23,7 +23,7 @@ const MainPage = () => {
 
   return (
     <>
-      <MainPageBanner />
+      <MainPageBanner onOpenModal={onOpenModal} />
       <MainPageInfo />
       <Container>
         <OpenOrderModal className={cls.btn} onOpenModal={onOpenModal}>

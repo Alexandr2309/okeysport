@@ -25,8 +25,7 @@ export const Navbar = ({ className }: INavbarProps) => {
   const { toggleTheme } = useTheme();
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
-  const result = useMatchMedia();
-  console.log(result);
+  const { isMobile } = useMatchMedia();
 
   const onShowModal = useCallback(() => {
     setIsAuthModal(true);
@@ -35,6 +34,8 @@ export const Navbar = ({ className }: INavbarProps) => {
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
   }, []);
+
+  console.log(isMobile);
 
   return (
     <nav>
@@ -49,7 +50,7 @@ export const Navbar = ({ className }: INavbarProps) => {
           ))}
         </div>
         <div className={cls.auth}>
-          <UserIcon />
+          {!isMobile && <UserIcon />}
           <Button onClick={onShowModal} className={cls.loginBtn}>
             {t('Вход')}
           </Button>

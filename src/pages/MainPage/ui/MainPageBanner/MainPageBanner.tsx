@@ -1,19 +1,19 @@
 import { memo } from 'react';
 import { mainPageBannerData } from 'shared/const/page';
 import { Text } from 'shared/ui/Text/Text';
-import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import CupImg from 'shared/assets/images/cup.png';
 import { Banner } from 'shared/ui/Banner/Banner';
 import cls from './MainPageBanner.module.scss';
-import { SendOrder } from 'features/send-order';
+import { OpenOrderModal } from 'features/order';
 
 export interface MainPageBannerProps {
   className?: string;
+  onOpenModal: () => void;
 }
 
 export const MainPageBanner = memo((props: MainPageBannerProps) => {
-  const { className } = props;
+  const { className, onOpenModal } = props;
   const { t } = useTranslation();
 
   return (
@@ -22,7 +22,9 @@ export const MainPageBanner = memo((props: MainPageBannerProps) => {
         <Text title={mainPageBannerData.title} className={cls.title} />
         <Text text={mainPageBannerData.text} className={cls.text} />
       </div>
-      <SendOrder className={cls.sendBtn}>{t('Организовать турнир')}</SendOrder>
+      <OpenOrderModal onOpenModal={onOpenModal} className={cls.sendBtn}>
+        {t('Организовать турнир')}
+      </OpenOrderModal>
       <div
         className={cls.bg}
         style={{

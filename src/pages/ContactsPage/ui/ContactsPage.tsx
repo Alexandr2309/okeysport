@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Container } from 'app/providers/Layout';
 import { Text } from 'shared/ui/Text/Text';
 import { Banner } from 'shared/ui/Banner/Banner';
-import Map from 'widgets/Map';
+import Map from 'shared/ui/Map';
 import cls from './ContactsPage.module.scss';
 
 const ContactsPage = () => {

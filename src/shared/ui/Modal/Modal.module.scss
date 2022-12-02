@@ -16,7 +16,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #9099a0;
+  background-color: rgb(#9099a0, 50%);
+  position: relative;
+  z-index: 101;
 }
 
 .content {
