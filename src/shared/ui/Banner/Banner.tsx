@@ -10,20 +10,16 @@ export interface BannerProps {
 }
 
 export const Banner = memo((props: BannerProps) => {
-  const {
-    className,
-    wrapperCls,
-    children,
-  } = props;
+  const { className, wrapperCls, children } = props;
   return (
     <div className={classNames(cls.Banner, {}, [className])}>
       <div className={cls.gradientWrapper}>
-        <Container
-          className={[cls.contentWrapper, wrapperCls].join(' ')}
-        >
+        <Container className={[cls.contentWrapper, wrapperCls].join(' ')}>
           {children}
         </Container>
       </div>
     </div>
   );
 });
+
+Banner.displayName = 'Banner';

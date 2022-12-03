@@ -10,6 +10,7 @@ import { IAuthSchema } from 'features/authByEmail';
 import { IRegisterSchema } from 'features/registerByEmail';
 import { AxiosInstance } from 'axios';
 import { IOrderSchema } from 'entities/order';
+import { IArticleDetailsSchema, IArticleListSchema } from 'entities/article';
 
 export interface IStateSchema {
   user: IUserSchema;
@@ -18,6 +19,8 @@ export interface IStateSchema {
   register?: IRegisterSchema;
   authForm?: IAuthSchema;
   order?: IOrderSchema;
+  articlesList?: IArticleListSchema;
+  articleDetails?: IArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;

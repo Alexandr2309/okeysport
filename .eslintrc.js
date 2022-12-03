@@ -21,7 +21,10 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
   rules: {
+    '@typescript-eslint/indent': 'off',
     indent: [2, 2],
+    'react/display-name': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',
@@ -31,7 +34,6 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     'react/jsx-indent': [2, 2],
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/indent': [2, 2],
     'react/jsx-props-no-spreading': 'warn',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react/require-default-props': 'off',

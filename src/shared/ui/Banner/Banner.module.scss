@@ -12,6 +12,12 @@
   position: relative;
   padding-top: 54px;
   padding-bottom: 54px;
+
+  & p {
+    color: #fff;
+    font: var(--font-xl);
+    font-weight: 600;
+  }
 }
 
 @media (max-width: 1600px) {

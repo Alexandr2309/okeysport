@@ -59,7 +59,7 @@ export default function buildLoaders({
           modules: {
             auto: (resPath: string) => Boolean(/.module./.test(resPath)),
             localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:8]'
+              ? '[path][name]__[local]--[hash:base64:5]'
               : '[hash:base64:8]',
           },
         },

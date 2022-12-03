@@ -1,12 +1,20 @@
 .authForm {
-  // border-radius: 20px;
+  border-radius: 20px;
   display: flex;
+  padding: 59px 40px;
   flex-direction: column;
   width: 40vw;
+  gap: 15px;
+  background: var(--white-primary);
 }
 
 .inp {
   margin-top: 10px;
+}
+
+.title > p {
+  font: var(--font-m);
+  font-weight: 600;
 }
 
 .placeholder {
@@ -32,4 +40,10 @@
 
 .btn {
   font: var(--font-accent);
+}
+
+@media (max-width: 720px) {
+  .authForm {
+    width: 80vw;
+  }
 }

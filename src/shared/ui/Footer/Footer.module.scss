@@ -2,7 +2,7 @@
   background-color: var(--footer-bg);
 }
 
-.footerWrapper{
+.footerWrapper {
   padding-top: 119px;
   padding-bottom: 119px;
   display: flex;
@@ -33,6 +33,7 @@
 
 .locationText {
   max-width: 350px;
+
   & > p {
     color: #fff;
     font: var(--font-m);
@@ -48,4 +49,20 @@
 
 .infoItemText > p {
   color: #fff;
+}
+
+@media (max-width: 720px) {
+  .infoItemText > p {
+    font: var(--font-accent);
+  }
+
+  .logoText > p {
+    font: var(--font-accent);
+    font-weight: 700;
+  }
+
+  .infoWrapper {
+    display: flex;
+    gap: 15px;
+  }
 }

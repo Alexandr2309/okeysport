@@ -9,9 +9,11 @@
 }
 
 .text p {
+  font: var(--font-m);
   font-style: italic;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-weight: 400;
 }
 
 .title p {

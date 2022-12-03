@@ -1,21 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-  memo, MouseEvent, useCallback, useState,
-} from 'react';
+import { memo, MouseEvent, useCallback, useState } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import DynamicModuleLoader, {
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { authFormActions, authFormReducer } from 'features/authByEmail/model/slices/authSlice';
+import {
+  authFormActions,
+  authFormReducer,
+} from 'features/authByEmail/model/slices/authSlice';
 import { Button } from 'shared/ui/Button/Button';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { authUserByEmail } from 'features/authByEmail/model/services/authByEmail';
 import cls from './AuthForm.module.scss';
-import { getAuthEmail, getAuthPassword } from '../../model/selectors/getAuthData';
+import {
+  getAuthEmail,
+  getAuthPassword,
+} from '../../model/selectors/getAuthData';
 
 export interface authFormProps {
   className?: string;
@@ -40,18 +44,24 @@ const authForm = memo((props: authFormProps) => {
     }
   }, [dispatch, email, onSuccess, password]);
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(authFormActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(authFormActions.setPassword(value));
+    },
+    [dispatch]
+  );
 
-  const onChangeEmail = useCallback((value: string) => {
-    dispatch(authFormActions.setEmail(value));
-  }, [dispatch]);
+  const onChangeEmail = useCallback(
+    (value: string) => {
+      dispatch(authFormActions.setEmail(value));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.authForm, {}, [className])}>
-        <Text title={t('Войти')} />
+        <Text title={t('Войти в личный кабинет')} className={cls.title} />
         <Input
           placeholder={t('Email')}
           className={cls.input}
@@ -69,10 +79,7 @@ const authForm = memo((props: authFormProps) => {
           onChange={onChangePassword}
         />
         <div className={cls.footer}>
-          <AppLink
-            to="/register"
-            className={cls.register}
-          >
+          <AppLink to='/register' className={cls.register}>
             {t('Регистрация')}
           </AppLink>
           <Button onClick={onButtonClick} className={cls.btn}>

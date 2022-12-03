@@ -21,9 +21,6 @@ import {
   registerActions,
   registerReducer,
 } from 'features/registerByEmail/model/slices/registerSlice';
-import {
-  registerUserByEmail,
-} from 'features/registerByEmail/model/services/registerUserByEmail/registerUserByEmail';
 import cls from './RegisterPage.module.scss';
 
 export interface RegisterPageProps {
@@ -45,35 +42,45 @@ const RegisterPage = memo(({ className }: RegisterPageProps) => {
   const isLoading = useSelector(getRegisterIsLoading);
   const error = useSelector(getRegisterError);
 
-  const onRegisterHandler = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    dispatch(registerUserByEmail({ username, password, email }));
-  }, [dispatch, email, password, username]);
+  // const onRegisterHandler = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   dispatch(registerUserByEmail({ username, password, email }));
+  // }, [dispatch, email, password, username]);
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(registerActions.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(registerActions.setUsername(value));
+    },
+    [dispatch]
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(registerActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(registerActions.setPassword(value));
+    },
+    [dispatch]
+  );
 
-  const onChangeEmail = useCallback((value: string) => {
-    dispatch(registerActions.setEmail(value));
-  }, [dispatch]);
+  const onChangeEmail = useCallback(
+    (value: string) => {
+      dispatch(registerActions.setEmail(value));
+    },
+    [dispatch]
+  );
 
-  const onChangeVerifiedPassword = useCallback((value: string) => {
-    dispatch(registerActions.setVerifiedPassword(value));
-  }, [dispatch]);
+  const onChangeVerifiedPassword = useCallback(
+    (value: string) => {
+      dispatch(registerActions.setVerifiedPassword(value));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.RegisterPage, {}, [className])}>
         <Container>
-          <form action="#" className={cls.form}>
-            <h1 className={cls.title}>
-              {t('Регистрация')}
-            </h1>
+          <form action='#' className={cls.form}>
+            <h1 className={cls.title}>{t('Регистрация')}</h1>
             <Input
               placeholder={`${t('Имя пользователя')}:`}
               inputClassName={cls.input}
@@ -97,7 +104,7 @@ const RegisterPage = memo(({ className }: RegisterPageProps) => {
               placeholderClassName={cls.placeholder}
               value={password}
               onChange={onChangePassword}
-              type="password"
+              type='password'
             />
             <Input
               placeholder={`${t('Подтвердите пароль')}:*`}
@@ -106,17 +113,17 @@ const RegisterPage = memo(({ className }: RegisterPageProps) => {
               placeholderClassName={cls.placeholder}
               value={verifiedPassword}
               onChange={onChangeVerifiedPassword}
-              type="password"
+              type='password'
             />
-            <div className={cls.btn}>
-              <Button
-                className={cls.btnReg}
-                type="submit"
-                onClick={onRegisterHandler}
-              >
-                {t('Зарегистрироваться')}
-              </Button>
-            </div>
+            {/* <div className={cls.btn}> */}
+            {/*   <Button */}
+            {/*     className={cls.btnReg} */}
+            {/*     type="submit" */}
+            {/*     onClick={onRegisterHandler} */}
+            {/*   > */}
+            {/*     {t('Зарегистрироваться')} */}
+            {/*   </Button> */}
+            {/* </div> */}
           </form>
         </Container>
       </div>

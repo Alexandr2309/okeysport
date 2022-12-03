@@ -14,14 +14,10 @@ export const AboutPageBanner = memo((props: AboutPageBannerProps) => {
   const { t } = useTranslation('about');
 
   return (
-    <Banner
-      wrapperCls={cls.contentWrapper}
-      className={cls.banner}
-    >
-      <Text
-        className={cls.title}
-        title={t('О компании')}
-      />
+    <Banner wrapperCls={cls.contentWrapper} className={cls.banner}>
+      <Text className={cls.title} title={t('О компании')} />
     </Banner>
   );
 });
+
+AboutPageBanner.displayName = 'AboutPageBanner';

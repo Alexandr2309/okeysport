@@ -10,13 +10,19 @@ import PhoneIcon from 'shared/assets/icons/phone.svg';
 import { useTranslation } from 'react-i18next';
 import { Icon } from 'shared/ui/Icon/Icon';
 import cls from './Footer.module.scss';
+import {
+  IUseMatchMediaResult,
+  useMatchMedia,
+} from 'shared/lib/hooks/use-match-media';
 
 export interface FooterProps {
   className?: string;
+  media: IUseMatchMediaResult;
 }
 
 export const Footer = memo((props: FooterProps) => {
-  const { className } = props;
+  const { className, media } = props;
+  const { isLaptop, isMobile } = media;
   const { t } = useTranslation();
 
   return (
@@ -26,21 +32,27 @@ export const Footer = memo((props: FooterProps) => {
           <LogoIcon />
           <Text title={t('OkeySport')} className={cls.logoText} />
         </AppLink>
-        <div className={cls.locationWrapper}>
-          <Icon Svg={HomeIcon} />
-          <Text
-            className={cls.locationText}
-            text={t('г. Хабаровск, ул. Тихоокеанская, д. 204, офис 35')}
-          />
-        </div>
+        {!isLaptop && (
+          <div className={cls.locationWrapper}>
+            <Icon Svg={HomeIcon} />
+            <Text
+              className={cls.locationText}
+              text={t('г. Хабаровск, ул. Тихоокеанская, д. 204, офис 35')}
+            />
+          </div>
+        )}
         <div className={cls.infoWrapper}>
           <div className={[cls.telephone, cls.infoItem].join(' ')}>
             <Icon Svg={PhoneIcon} />
-            <Text text='+ 7 (926) 425 78 45' className={cls.infoItemText} />
+            {!isMobile && (
+              <Text text='+ 7 (926) 425 78 45' className={cls.infoItemText} />
+            )}
           </div>
           <div className={[cls.mail, cls.infoItem].join(' ')}>
             <Icon Svg={MailIcon} />
-            <Text text='okeysport@mail.ru' className={cls.infoItemText} />
+            {!isMobile && (
+              <Text text='okeysport@mail.ru' className={cls.infoItemText} />
+            )}
           </div>
         </div>
       </Container>

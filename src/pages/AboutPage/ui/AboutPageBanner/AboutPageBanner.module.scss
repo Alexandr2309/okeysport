@@ -14,3 +14,9 @@
   font-style: italic;
 }
 
+@media (max-width: 720px) {
+  .title > p {
+    font-size: 30px;
+    line-height: 35px;
+  }
+}

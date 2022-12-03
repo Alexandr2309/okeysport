@@ -1,43 +1,37 @@
-import { useLayoutEffect, useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useEffect, useState } from 'react';
+import { useDebounce } from 'shared/lib/hooks/use-debounce';
 
-const queries = [
-  '(max-width: 720px)',
-  '(max-width: 1280px)',
-  '(min-width: 1440px)',
-];
+const queries = [720, 1280, 1440];
 const queriesNames = ['isMobile', 'isLaptop', 'isDesktop'];
 
-type IUseMatchMediaResult = Record<
+export type IUseMatchMediaResult = Record<
   'isMobile' | 'isLaptop' | 'isDesktop',
   boolean
 >;
 
-export function useMatchMedia(): IUseMatchMediaResult {
-  const matchMediaQueries = queries.map(matchMedia);
-  const getValues = matchMediaQueries.map((query) => query.matches);
+export function useMatchMedia() {
+  function updateSize() {
+    setSize([
+      document.documentElement.clientWidth,
+      document.documentElement.clientHeight,
+    ]);
+  }
 
-  const [values, setValues] = useState(getValues);
+  const [size, setSize] = useState([0, 0]);
+  const debounceUpdateSize = useDebounce(updateSize, 250);
 
-  useLayoutEffect(() => {
-    const handler = () => setValues(getValues);
+  useEffect(() => {
+    window.addEventListener('resize', debounceUpdateSize);
 
-    matchMediaQueries.forEach((query) =>
-      query.addEventListener('change', handler)
-    );
+    return () => window.removeEventListener('resize', debounceUpdateSize);
+  }, [debounceUpdateSize]);
 
-    return () =>
-      matchMediaQueries.forEach((query) =>
-        query.removeEventListener('change', handler)
-      );
-  }, [getValues, matchMediaQueries]);
-
-  const result = queriesNames.reduce(
+  return <IUseMatchMediaResult>queriesNames.reduce(
     (acc, screen, index) => ({
       ...acc,
-      [screen]: values[index],
+      [screen]: size[0] < queries[index],
     }),
     {}
   );
-
-  return <IUseMatchMediaResult>result;
 }

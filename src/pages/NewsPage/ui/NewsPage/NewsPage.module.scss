@@ -1,3 +1,12 @@
 .NewsPage {
+  margin-bottom: 100px;
+}
 
+.title {
+  & > p {
+    font: var(--font-x);
+    font-weight: 600;
+  }
+
+  margin-bottom: 55px;
 }
