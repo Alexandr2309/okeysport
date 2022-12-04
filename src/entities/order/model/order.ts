@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IOrderSchema } from './model';
-import { TypeEvents } from 'entities/events';
+import { TypeEvents } from "shared/const/events";
 
 const initialState: IOrderSchema = {
   type: TypeEvents.CHAMPIONSHIP,

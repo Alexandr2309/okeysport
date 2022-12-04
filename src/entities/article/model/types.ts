@@ -15,15 +15,18 @@ type ArticleBlockCommon = {
 export type ArticleTextBlock = {
   title: string;
   paragraphs: string[];
+  type: ArticleBlockType.TEXT;
 } & ArticleBlockCommon;
 
 // IMAGES BLOCK
 export type ArticleImagesBlock = {
   images: string[];
+  type: ArticleBlockType.IMAGES;
 } & ArticleBlockCommon;
 
 // LIST BLOCK
 export type ArticleListBlock = {
+  type: ArticleBlockType.LIST;
   list: string[];
   title: string;
   text?: string;
@@ -43,7 +46,7 @@ export type Article = {
 
 export interface IArticleDetailsSchema {
   isLoading: boolean;
-  error: string;
+  error?: string;
   data?: Article;
 }
 

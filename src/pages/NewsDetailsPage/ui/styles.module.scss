@@ -1,0 +1,32 @@
+.root {
+  margin-bottom: 100px;
+}
+
+.modal {
+  margin-top: 100px;
+}
+
+@media (max-width: 1279px) {
+  .modal {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .modal {
+    margin-top: 25px;
+  }
+
+  .root {
+    margin-bottom: 55px;
+  }
+}
+
+.back {
+  font: var(--font-m);
+  font-weight: 600;
+
+  &:before {
+    width: 5px;
+  }
+}

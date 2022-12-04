@@ -1,4 +1,4 @@
-import { TypeEvents } from 'entities/events';
+import { TypeEvents } from "shared/const/events";
 
 export interface IOrderSchema {
   name: string;

@@ -9,7 +9,8 @@ import { RegisterPage } from 'pages/RegisterPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NewsPage } from 'pages/NewsPage';
 import { ServicesPage } from 'pages/ServicesPage';
-import { RequestsPage } from 'pages/RequestsPage';
+import { ApplicationsPage } from 'pages/RequestsPage';
+import { NewsDetailsPage } from 'pages/NewsDetailsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
@@ -36,9 +37,13 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutesPath.news,
     element: <NewsPage />,
   },
-  [AppRoutes.REQUESTS]: {
-    path: RoutesPath.requests,
-    element: <RequestsPage />,
+  [AppRoutes.NEWS_DETAILS]: {
+    path: `${RoutesPath.news_details}:id`,
+    element: <NewsDetailsPage />,
+  },
+  [AppRoutes.APPLICATIONS]: {
+    path: RoutesPath.applications,
+    element: <ApplicationsPage />,
   },
 };
 

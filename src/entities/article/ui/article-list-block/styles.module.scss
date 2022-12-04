@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  & p {
+    font: var(--font-m);
+    font-weight: 400;
+    color: var(--black-primary);
+  }
+}
+
+.list {
+}
+
+.listItem {
+  &:before {
+    content: '•';
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+.point {
+  display: inline-block;
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

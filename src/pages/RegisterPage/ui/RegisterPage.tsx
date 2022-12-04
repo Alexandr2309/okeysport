@@ -6,7 +6,7 @@ import { Container } from 'app/providers/Layout';
 import { Button } from 'shared/ui/Button/Button';
 import DynamicModuleLoader, {
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from 'shared/lib/components/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import {
   getRegisterEmail,

@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { Banner } from 'shared/ui/Banner/Banner';

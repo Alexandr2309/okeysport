@@ -16,6 +16,9 @@ export const fetchArticles = createAsyncThunk<
       params: {
         _limit: limit,
       },
+      headers: {
+        authorization: 'foRAll9x23',
+      },
     });
 
     if (!response.data) {

@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title > p,
+.text > p {
+  font: var(--font-m);
+  color: var(--black-primary);
+}
+
+.title > p {
+  font-weight: 600;
+}

@@ -32,6 +32,11 @@ const articlesListSlice = createSlice({
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.hasMore = action.payload.length >= state.limit;
         articlesAdapter.setAll(state, action.payload);
+        state.isLoading = false;
+      })
+      .addCase(fetchArticles.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
       });
   },
 });

@@ -5,7 +5,8 @@ export enum AppRoutes {
   REGISTER = 'register',
   ABOUT = 'about',
   NEWS = 'news',
-  REQUESTS = 'requests',
+  NEWS_DETAILS = 'news_details',
+  APPLICATIONS = 'applications',
 }
 
 export const RoutesPath: Record<AppRoutes, string> = {
@@ -15,5 +16,6 @@ export const RoutesPath: Record<AppRoutes, string> = {
   [AppRoutes.REGISTER]: '/register',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.NEWS]: '/news',
-  [AppRoutes.REQUESTS]: '/requests',
+  [AppRoutes.NEWS_DETAILS]: '/news/',
+  [AppRoutes.APPLICATIONS]: '/applications',
 };

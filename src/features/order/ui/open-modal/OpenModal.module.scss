@@ -2,10 +2,10 @@
 
 }
 
-.title {
+.title > p {
   font: var(--font-xl);
-  font-weight: 600;
   color: var(--black-primary);
+  font-weight: 600;
   margin-bottom: 20px;
 }
 

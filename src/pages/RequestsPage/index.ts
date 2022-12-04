@@ -1,1 +1,1 @@
-export { RequestsPageAsync as RequestsPage } from './ui/RequestsPage/RequestsPage.async';
+export { ApplicationsPageAsync as ApplicationsPage } from './ui/ApplicationsPage/ApplicationsPage.async';

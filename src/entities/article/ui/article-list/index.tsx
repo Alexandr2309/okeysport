@@ -4,6 +4,8 @@ import { Article } from '../../model/types';
 import { memo } from 'react';
 import { ArticleItem } from '../article-item';
 import { ArticleSkeletonItem } from '../article-item/skeleton';
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
+import { Link } from 'react-router-dom';
 
 export interface ArticleListProps {
   className?: string;

@@ -41,11 +41,44 @@ server.post('/login', (req, res) => {
   }
 });
 
+// register endpoint
+server.post('/register', (req, res) => {
+  try {
+    const { email, username } = req.body;
+    console.log(req.body);
+    const db = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8')
+    );
+    const { users = [] } = db;
+
+    const userFromBd = users.find(
+      (user) => user.email === email || user.username === username
+    );
+
+    if (userFromBd) {
+      return res.status(403).json({ message: 'User is has' });
+    }
+    const lastId = +users[users.length - 1].id;
+
+    db.users.push({ id: (lastId + 1).toString(), ...req.body });
+
+    fs.writeFileSync(
+      path.resolve(__dirname, 'db.json'),
+      JSON.stringify(db),
+      'UTF-8'
+    );
+
+    return res.status(200).json({ message: 'User successfully add' });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: e.message });
+  }
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
-    console.log('here');
     return res.status(403).json({ message: 'AUTH ERROR' });
   }
 

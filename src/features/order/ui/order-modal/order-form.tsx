@@ -13,14 +13,15 @@ import {
 } from 'entities/order';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTranslation } from 'react-i18next';
-import { EventsSelect, TypeEvents } from 'entities/events';
+import { EventsSelect } from 'entities/events';
 import DynamicModuleLoader, {
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from 'shared/lib/components/DynamicModuleLoader';
 import { SendOrder } from 'features/send-order';
 import cls from './styles.module.scss';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { Text } from 'shared/ui/Text/Text';
+import { TypeEvents } from 'shared/const/events';
 
 export interface OrderFormProps {
   className?: string;

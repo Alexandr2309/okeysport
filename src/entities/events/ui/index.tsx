@@ -1,8 +1,8 @@
 import cls from './styles.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { TypeEvents } from '../model';
 import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
+import { TypeEvents } from "shared/const/events";
 
 export interface IEventsSelectProps {
   className?: string;

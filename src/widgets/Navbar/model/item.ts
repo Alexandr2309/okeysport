@@ -3,7 +3,7 @@ import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 export interface INavbarItem {
   text: string;
   authOnly?: boolean;
-  path: string
+  path: string;
 }
 
 export const NavbarItemsList: INavbarItem[] = [
@@ -26,5 +26,10 @@ export const NavbarItemsList: INavbarItem[] = [
     text: 'Контакты',
     path: RoutesPath.contacts,
     authOnly: false,
+  },
+  {
+    text: 'Заявки',
+    path: RoutesPath.applications,
+    authOnly: true,
   },
 ];

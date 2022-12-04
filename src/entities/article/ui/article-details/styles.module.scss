@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+@media (max-width: 1279px) {
+  .root {
+    gap: 40px;
+  }
+}
+@media (max-width: 720px) {
+  .root {
+    gap: 25px;
+  }
+}

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './NewsPage.module.scss';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
+  ArticleList,
   articlesListReducer,
   fetchArticles,
   getArticles,
@@ -12,11 +13,10 @@ import {
 import { NewsPageBanner } from '../NewsPageBanner';
 import { Text } from 'shared/ui/Text/Text';
 import { Container } from 'app/providers/Layout';
-import { ArticleList } from 'entities/article/ui/article-list';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, {
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from 'shared/lib/components/DynamicModuleLoader';
 
 export interface NewsPageProps {
   className?: string;
@@ -48,7 +48,7 @@ const NewsPage = memo((props: NewsPageProps) => {
             }
             className={cls.title}
           />
-          <ArticleList isLoading={true} data={articles} />
+          <ArticleList isLoading={isLoading} data={articles} />
         </Container>
       </main>
     </DynamicModuleLoader>

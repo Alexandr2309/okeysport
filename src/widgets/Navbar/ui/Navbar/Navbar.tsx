@@ -17,11 +17,11 @@ import cls from './Navbar.module.scss';
 import { IUseMatchMediaResult } from 'shared/lib/hooks/use-match-media';
 import BurgerIcon from 'shared/assets/icons/burger.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { useLocation } from 'react-router-dom';
 
 type INavbarProps = {
   className?: string;
