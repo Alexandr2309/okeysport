@@ -20,7 +20,7 @@
 
 .form {
   max-width: 60%;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 .inp {
@@ -33,4 +33,8 @@
   color: var(--inverted-bg-color);
   margin-bottom: 8px;
   font-weight: bold;
+}
+
+.input.error {
+  border: 1px solid var(--error-color);
 }

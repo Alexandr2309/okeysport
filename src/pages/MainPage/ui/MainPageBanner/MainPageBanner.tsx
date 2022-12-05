@@ -5,15 +5,14 @@ import { useTranslation } from 'react-i18next';
 import CupImg from 'shared/assets/images/cup.png';
 import { Banner } from 'shared/ui/Banner/Banner';
 import cls from './MainPageBanner.module.scss';
-import { OpenOrderModal } from 'features/order';
+import { OpenOrderModal } from 'widgets/order';
 
 export interface MainPageBannerProps {
   className?: string;
-  onOpenModal: () => void;
 }
 
 export const MainPageBanner = memo((props: MainPageBannerProps) => {
-  const { className, onOpenModal } = props;
+  const { className } = props;
   const { t } = useTranslation();
 
   return (
@@ -22,7 +21,7 @@ export const MainPageBanner = memo((props: MainPageBannerProps) => {
         <Text title={mainPageBannerData.title} className={cls.title} />
         <Text text={mainPageBannerData.text} className={cls.text} />
       </div>
-      <OpenOrderModal onOpenModal={onOpenModal} className={cls.sendBtn}>
+      <OpenOrderModal className={cls.sendBtn}>
         {t('Организовать турнир')}
       </OpenOrderModal>
       <div

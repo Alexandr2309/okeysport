@@ -6,10 +6,11 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails, getArticleDetailsData } from 'entities/article';
 import { useSelector } from 'react-redux';
 import { Container } from 'app/providers/Layout';
-import { OpenOrderModal, OrderModal } from 'features/order';
+import { OrderModal } from 'features/order';
 import { useTranslation } from 'react-i18next';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
+import { OpenOrderModal } from 'widgets/order';
 
 interface INewsDetailsPageProps {
   className?: string;
@@ -40,7 +41,7 @@ const NewsDetailsPage = (props: INewsDetailsPageProps) => {
         <ArticleDetails id={id!} />
       </Container>
       <Container className={cls.modal}>
-        <OpenOrderModal className={cls.btn} onOpenModal={onOpenModal} withText>
+        <OpenOrderModal className={cls.btn} withText>
           {t('Отправить заявку')}
         </OpenOrderModal>
         {isOpenOrder && (

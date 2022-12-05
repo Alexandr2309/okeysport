@@ -2,7 +2,7 @@ import cls from './styles.module.scss';
 import ChevronDown from 'shared/assets/icons/chevron_down.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { tableHeaders } from './model';
-import { Dispatch, SetStateAction, useCallback } from 'react';
+import { Dispatch, SetStateAction, useCallback, useMemo } from 'react';
 import { SortKey, SortOrder } from '../../model';
 import { Icon } from 'shared/ui/Icon/Icon';
 
@@ -30,6 +30,25 @@ export const AppTableHeader = (props: IAppTableHeaderProps) => {
     [currentKey, setSortKey, sortOrder]
   );
 
+  const AppHeaderSortIcon = useCallback(
+    ({ header }: { header: typeof tableHeaders[0] }) => {
+      return (
+        <span
+          className={classNames(
+            cls.icon,
+            {
+              [cls.active]: currentKey === header.value && order === 'desc',
+            },
+            []
+          )}
+        >
+          <Icon Svg={ChevronDown} />
+        </span>
+      );
+    },
+    [currentKey, order]
+  );
+
   return (
     <thead className={classNames(cls.root, {}, [className])}>
       <tr className={cls.row}>
@@ -40,20 +59,7 @@ export const AppTableHeader = (props: IAppTableHeaderProps) => {
             onClick={onChangeSortOrder(header.value)}
           >
             {header.label}
-            {header.value === 'id' && (
-              <span
-                className={classNames(
-                  cls.icon,
-                  {
-                    [cls.active]:
-                      currentKey === header.value && order === 'desc',
-                  },
-                  []
-                )}
-              >
-                <Icon Svg={ChevronDown} />
-              </span>
-            )}
+            {header.sortable && <AppHeaderSortIcon header={header} />}
           </th>
         ))}
       </tr>

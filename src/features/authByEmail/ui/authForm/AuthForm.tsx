@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, MouseEvent, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -11,6 +11,7 @@ import {
   authFormReducer,
 } from 'features/authByEmail/model/slices/authSlice';
 import { Button } from 'shared/ui/Button/Button';
+import { Button as ButtonAntd } from 'antd';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,6 +21,12 @@ import {
   getAuthEmail,
   getAuthPassword,
 } from '../../model/selectors/getAuthData';
+import { Modal } from 'shared/ui/Modal/Modal';
+import { Result, ResultStatus } from 'shared/ui/Result';
+import { useNavigate } from 'react-router-dom';
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
+import { OpenOrderModal } from 'widgets/order';
+import { UserRole } from 'entities/User/model/types/user';
 
 export interface authFormProps {
   className?: string;
@@ -33,6 +40,8 @@ const reducers: ReducerList = {
 const authForm = memo((props: authFormProps) => {
   const { className, onSuccess } = props;
   const { t } = useTranslation();
+  const na = useNavigate();
+  const [isSuccessAuth, setIsSuccessAuth] = useState(false);
   const dispatch = useAppDispatch();
   const email = useSelector(getAuthEmail);
   const password = useSelector(getAuthPassword);
@@ -40,9 +49,19 @@ const authForm = memo((props: authFormProps) => {
   const onButtonClick = useCallback(async () => {
     const response = await dispatch(authUserByEmail({ email, password }));
     if (response.meta.requestStatus === 'fulfilled') {
-      onSuccess?.();
+      // @ts-ignore
+      if (response?.payload?.role === 'ADMIN') {
+        onSuccess?.();
+      } else {
+        setIsSuccessAuth(true);
+      }
     }
   }, [dispatch, email, onSuccess, password]);
+
+  const onBackToMain = useCallback(() => {
+    onSuccess?.();
+    na(RoutesPath.main);
+  }, [na, onSuccess]);
 
   const onChangePassword = useCallback(
     (value: string) => {
@@ -87,6 +106,26 @@ const authForm = memo((props: authFormProps) => {
           </Button>
         </div>
       </div>
+      {isSuccessAuth && (
+        <Modal isOpen={isSuccessAuth}>
+          <div className={cls.resultWrapper}>
+            <Result
+              status={ResultStatus.SUCCESS}
+              title={t('Авторизация прошла успешно!')}
+              subtitle={t(
+                'Теперь вы можете оставить заявку или вернуть к просмотру сайта'
+              )}
+            >
+              <OpenOrderModal className={cls.btnOrder}>
+                {t('Оставить заявку')}
+              </OpenOrderModal>
+              <ButtonAntd key={'return'} onClick={onBackToMain}>
+                {t('Вернуться на главную')}
+              </ButtonAntd>
+            </Result>
+          </div>
+        </Modal>
+      )}
     </DynamicModuleLoader>
   );
 });

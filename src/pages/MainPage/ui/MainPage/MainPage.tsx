@@ -4,35 +4,26 @@
 import { useTranslation } from 'react-i18next';
 import { MainPageBanner } from 'pages/MainPage/ui/MainPageBanner/MainPageBanner';
 import { MainPageInfo } from '../MainPageInfo/ui/MainPageInfo';
-import { OpenOrderModal, OrderModal } from 'features/order';
+import { OrderModal } from 'features/order';
 import { useCallback, useState } from 'react';
 import { Container } from 'app/providers/Layout';
 import cls from './styles.module.scss';
+import { OpenOrderModal } from 'widgets/order';
+import { Result, ResultStatus } from 'shared/ui/Result';
+import { Button as ButtonAntd } from 'antd';
 
 const MainPage = () => {
   const { t } = useTranslation();
-  const [isOpenOrder, setIsOpenOrder] = useState(false);
-
-  const onOpenModal = useCallback(() => {
-    setIsOpenOrder(true);
-  }, []);
-
-  const onCloseModal = useCallback(() => {
-    setIsOpenOrder(false);
-  }, []);
 
   return (
     <>
-      <MainPageBanner onOpenModal={onOpenModal} />
+      <MainPageBanner />
       <MainPageInfo />
       <Container>
-        <OpenOrderModal className={cls.btn} onOpenModal={onOpenModal}>
+        <OpenOrderModal className={cls.btn}>
           {t('Узнать подробнее')}
         </OpenOrderModal>
       </Container>
-      {isOpenOrder && (
-        <OrderModal isOpen={isOpenOrder} onClose={onCloseModal} />
-      )}
     </>
   );
 };

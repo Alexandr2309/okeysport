@@ -5,10 +5,8 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { IPageData } from 'shared/const/page/mainPage/model';
 import { MainPageServiceItem } from 'pages/MainPage/ui/MainPageServiceItem/MainPageServiceItem';
 import { mainPageData } from 'shared/const/page';
-import { Button } from 'shared/ui/Button/Button';
 import { Container } from 'app/providers/Layout';
 import cls from './MainPageInfo.module.scss';
-import { OpenOrderModal } from 'features/order';
 
 export interface MainPageInfoProps {
   className?: string;
