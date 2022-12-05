@@ -1,10 +1,16 @@
-.root {
-
+.row {
+  //display: grid;
+  //grid-template: 1fr / repeat(7, auto);
 }
 
 .item {
-  display: inline-block;
   font: var(--font-m);
-  font-weight: 600;
-  white-space: pre-line;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+

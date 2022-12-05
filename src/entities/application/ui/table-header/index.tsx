@@ -1,21 +1,24 @@
 import cls from './styles.module.scss';
+import ChevronDown from 'shared/assets/icons/chevron_down.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { tableHeaders } from './model';
 import { Dispatch, SetStateAction, useCallback } from 'react';
-import { SortOrder } from 'entities/application';
+import { SortKey, SortOrder } from '../../model';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 export interface IAppTableHeaderProps {
   className?: string;
-  setSortKey: (key: string) => void;
+  setSortKey: (key: SortKey) => void;
   currentKey: string;
+  order: SortOrder;
   sortOrder: Dispatch<SetStateAction<SortOrder>>;
 }
 
 export const AppTableHeader = (props: IAppTableHeaderProps) => {
-  const { className, sortOrder, setSortKey, currentKey } = props;
+  const { className, sortOrder, setSortKey, currentKey, order } = props;
 
   const onChangeSortOrder = useCallback(
-    (key: string) => () => {
+    (key: SortKey) => () => {
       if (currentKey !== key) {
         sortOrder('asc');
       } else {
@@ -28,11 +31,29 @@ export const AppTableHeader = (props: IAppTableHeaderProps) => {
   );
 
   return (
-    <thead className={classNames(cls.index, {}, [className])}>
-      <tr>
+    <thead className={classNames(cls.root, {}, [className])}>
+      <tr className={cls.row}>
         {tableHeaders.map((header) => (
-          <th key={header.id} onClick={onChangeSortOrder(header.value)}>
+          <th
+            className={cls.head}
+            key={header.id}
+            onClick={onChangeSortOrder(header.value)}
+          >
             {header.label}
+            {header.value === 'id' && (
+              <span
+                className={classNames(
+                  cls.icon,
+                  {
+                    [cls.active]:
+                      currentKey === header.value && order === 'desc',
+                  },
+                  []
+                )}
+              >
+                <Icon Svg={ChevronDown} />
+              </span>
+            )}
           </th>
         ))}
       </tr>

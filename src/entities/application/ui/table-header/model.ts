@@ -1,13 +1,15 @@
+import { SortKey } from 'entities/application';
+
 type TableHeaderItem = {
   id: string;
-  value: string;
+  value: SortKey;
   label: string;
 };
 export const tableHeaders: TableHeaderItem[] = [
   {
     id: '1',
     label: 'Дата',
-    value: 'datetime',
+    value: 'date',
   },
   {
     id: '2',
@@ -17,12 +19,12 @@ export const tableHeaders: TableHeaderItem[] = [
   {
     id: '3',
     label: 'Имя \n' + 'пользователя',
-    value: 'username',
+    value: 'name',
   },
   {
     id: '4',
     label: 'Номер \n' + 'телефона',
-    value: 'phone_number',
+    value: 'phone',
   },
   {
     id: '5',
@@ -32,7 +34,7 @@ export const tableHeaders: TableHeaderItem[] = [
   {
     id: '6',
     label: 'Тип мероприятия',
-    value: 'event_type',
+    value: 'type',
   },
   {
     id: '7',
