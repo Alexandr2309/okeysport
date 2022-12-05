@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/ui/Input/Input';
-import { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   getComment,
   getEmail,
   getEventType,
   getName,
+  getOrderErrors,
   getPhone,
   orderActions,
   orderReducer,
@@ -22,6 +23,9 @@ import cls from './styles.module.scss';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { Text } from 'shared/ui/Text/Text';
 import { TypeEvents } from 'shared/const/events';
+import { Modal } from 'shared/ui/Modal/Modal';
+import { message, Spin, Tooltip } from 'antd';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 export interface OrderFormProps {
   className?: string;
@@ -35,12 +39,30 @@ const OrderForm = (props: OrderFormProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(false);
+  const [msgApi, ctxHolder] = message.useMessage();
 
+  const errors = useSelector(getOrderErrors);
   const name = useSelector(getName);
   const email = useSelector(getEmail);
   const phone = useSelector(getPhone);
   const comment = useSelector(getComment);
   const eventType = useSelector(getEventType);
+
+  useEffect(() => {
+    if (errors.server) {
+      msgApi.open({
+        type: 'error',
+        content: t('Ошибка сервера. Повторите попытку позже'),
+      });
+    }
+    if (errors.noData) {
+      msgApi.open({
+        type: 'warning',
+        content: t('Необходимо заполнить все поля!'),
+      });
+    }
+  }, [errors.noData, errors.server, msgApi, t]);
 
   const onChangeName = useCallback(
     (value: string) => {
@@ -79,35 +101,67 @@ const OrderForm = (props: OrderFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
+      {ctxHolder}
+      <Modal isOpen={isLoading}>
+        <Spin indicator={<Loader />} />
+      </Modal>
       <form className={classNames(cls.OrderForm, {}, [className])}>
         <OrderFormHeader />
         <div className={cls.formContent}>
-          <Input
-            type='text'
-            value={name}
-            className={cls.inp}
-            onChange={onChangeName}
-            placeholder={t('Имя')}
-          />
-          <Input
-            type='text'
-            value={phone}
-            className={cls.inp}
-            onChange={onChangePhone}
-            placeholder={t('Номер телефона')}
-          />
-          <Input
-            type='text'
-            value={email}
-            className={cls.inp}
-            onChange={onChangeEmail}
-            placeholder={t('Электронная почта')}
-          />
-          <EventsSelect
-            value={eventType}
-            className={cls.select}
-            onChange={onChangeType}
-          />
+          <Tooltip
+            title={t('Допустимы только буквы!')}
+            open={errors.username}
+            color='red'
+            placement='topRight'
+          >
+            <Input
+              type='text'
+              value={name}
+              className={cls.inp}
+              onChange={onChangeName}
+              placeholder={t('Имя')}
+            />
+          </Tooltip>
+          <Tooltip
+            title={t('Поле заполнено не полностью или не верно!')}
+            open={errors.phone}
+            color='red'
+            placement='topRight'
+          >
+            <Input
+              type='text'
+              value={phone}
+              className={cls.inp}
+              onChange={onChangePhone}
+              placeholder={t('Номер телефона')}
+            />
+          </Tooltip>
+          <Tooltip
+            title={t('Некорректный email!')}
+            open={errors.email}
+            color='red'
+            placement='topRight'
+          >
+            <Input
+              type='text'
+              value={email}
+              className={cls.inp}
+              onChange={onChangeEmail}
+              placeholder={t('Электронная почта')}
+            />
+          </Tooltip>
+          <Tooltip
+            title={t('Необходимо выбрать тип мероприятия')}
+            open={errors.type}
+            color='red'
+            placement='topRight'
+          >
+            <EventsSelect
+              value={eventType}
+              className={cls.select}
+              onChange={onChangeType}
+            />
+          </Tooltip>
           <TextArea
             value={comment}
             className={cls.textarea}
