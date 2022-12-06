@@ -17,6 +17,22 @@
       "email": "alexandr.kolom.web@yandex.ru",
       "type": "COMPETITION",
       "comment": "Позвоните в ближайшее время"
+    },
+    {
+      "name": "Александр",
+      "email": "hfdsf.dd@gmail.com",
+      "phone": "+79242202235",
+      "comment": "",
+      "type": "CHAMPIONSHIP",
+      "id": "1ni-9OB"
+    },
+    {
+      "name": "Александр",
+      "email": "fsdfd.kede@mail.ru",
+      "phone": "+79294031664",
+      "comment": "",
+      "type": "OLYMPICS",
+      "id": "WMRhOQF"
     }
   ],
   "articles": [
@@ -403,14 +419,14 @@
       "id": "1",
       "username": "admin",
       "email": "saha.kol04@gmail.com",
-      "password": "123",
+      "password": "123123",
       "role": "ADMIN"
     },
     {
       "id": "2",
       "username": "user",
       "email": "alexandr.kolom.web@yandex.ru",
-      "password": "312",
+      "password": "312312",
       "role": "USER"
     },
     {

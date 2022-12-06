@@ -1,3 +1,12 @@
 .root {
   color: var(--white-primary);
 }
+
+.modal,
+.overlayModal {
+  background: var(--white-primary);
+}
+
+.contentModal {
+  background: none;
+}

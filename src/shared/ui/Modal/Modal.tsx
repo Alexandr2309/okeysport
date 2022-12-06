@@ -8,11 +8,15 @@ import React, {
   useState,
 } from 'react';
 import Portal from 'shared/ui/Portal/Portal';
+import CloseIcon from '../../assets/icons/close.svg';
 import { useLocation } from 'react-router-dom';
 import cls from './Modal.module.scss';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 export interface ModalProps {
   className?: string;
+  overlayCls?: string;
+  contentCls?: string;
   children: ReactNode;
   isOpen: boolean;
   onClose?: () => void;
@@ -22,7 +26,8 @@ export interface ModalProps {
 const ANIMATE_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const { className, children, lazy, onClose, isOpen } = props;
+  const { className, children, lazy, onClose, isOpen, overlayCls, contentCls } =
+    props;
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const [isMounted, setIsMounted] = useState(false);
@@ -87,8 +92,19 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
-        <div className={cls.overlay} onClick={onCloseHandler}>
-          <div className={cls.content} onClick={onContentClickHandler}>
+        <div
+          className={classNames(cls.overlay, {}, [overlayCls])}
+          onClick={onCloseHandler}
+        >
+          <div
+            className={classNames(cls.content, {}, [contentCls])}
+            onClick={onContentClickHandler}
+          >
+            <Icon
+              Svg={CloseIcon}
+              className={cls.icon}
+              onClick={onCloseHandler}
+            />
             {children}
           </div>
         </div>

@@ -17,6 +17,7 @@ export const sendOrder = createAsyncThunk<
 >('order/sendOrder', async (_, thunkAPI) => {
   const { extra, rejectWithValue, dispatch, getState } = thunkAPI;
   const data = getAllOrderData(getState());
+  dispatch(orderActions.setValidateErrors([]));
 
   const errors = validateOrderData(data);
 

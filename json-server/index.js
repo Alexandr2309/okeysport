@@ -78,7 +78,7 @@ server.post('/register', (req, res) => {
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
-  if (!req.headers.authorization) {
+  if (!req.headers.authorization && !req.url.includes('articles')) {
     return res.status(403).json({ message: 'AUTH ERROR' });
   }
 

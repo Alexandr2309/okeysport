@@ -22,6 +22,7 @@ import { getUserAuthData } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { userActions } from 'entities/User/model/slice/userSlice';
 import { useLocation } from 'react-router-dom';
+import { Popconfirm } from 'antd';
 
 type INavbarProps = {
   className?: string;
@@ -31,6 +32,7 @@ type INavbarProps = {
 export const Navbar = ({ className, media }: INavbarProps) => {
   const { t } = useTranslation();
 
+  const [open, setOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAuthModal, setIsAuthModal] = useState(false);
   const { pathname } = useLocation();
@@ -38,6 +40,14 @@ export const Navbar = ({ className, media }: INavbarProps) => {
   const dispatch = useAppDispatch();
 
   const { isMobile, isLaptop } = media;
+
+  const onOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const onClose = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     setIsCollapsed(false);
@@ -49,6 +59,7 @@ export const Navbar = ({ className, media }: INavbarProps) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
+    setIsCollapsed(false);
   }, [dispatch]);
 
   const onCloseBurgerContent = useCallback(() => {
@@ -74,11 +85,19 @@ export const Navbar = ({ className, media }: INavbarProps) => {
   const LogoutBtn = useMemo(() => {
     return (
       <>
-        <Icon Svg={LogoutIcon} onClick={onLogout} />
+        <Popconfirm
+          title='Вы точно хотите выйти'
+          open={open}
+          onConfirm={onLogout}
+          onCancel={onClose}
+          placement='bottomLeft'
+        >
+          <Icon Svg={LogoutIcon} onClick={onOpen} />
+        </Popconfirm>
         <Text text={authData?.username || ''} className={cls.username} />
       </>
     );
-  }, [authData?.username, onLogout]);
+  }, [authData?.username, onClose, onLogout, onOpen, open]);
 
   return (
     <nav>

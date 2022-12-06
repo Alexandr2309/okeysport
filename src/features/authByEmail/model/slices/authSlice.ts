@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IAuthSchema } from '../types/authSchema';
+import { IAuthSchema, ValidateAuthErrors } from '../types/authSchema';
+import { authUserByEmail } from 'features/authByEmail/model/services/authByEmail';
 
 const initialState: IAuthSchema = {
   email: '',
-  error: undefined,
+  validateErrors: [],
   password: '',
 };
 
@@ -17,6 +18,11 @@ export const authFormSlice = createSlice({
     setPassword: (state, action) => {
       state.password = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(authUserByEmail.rejected, (state, action) => {
+      state.validateErrors = action.payload;
+    });
   },
 });
 

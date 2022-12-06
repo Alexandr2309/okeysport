@@ -102,9 +102,6 @@ const OrderForm = (props: OrderFormProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       {ctxHolder}
-      <Modal isOpen={isLoading}>
-        <Spin indicator={<Loader />} />
-      </Modal>
       <form className={classNames(cls.OrderForm, {}, [className])}>
         <OrderFormHeader />
         <div className={cls.formContent}>

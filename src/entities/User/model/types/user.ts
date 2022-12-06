@@ -5,7 +5,6 @@ export interface IUser {
   email: string;
   role: UserRole;
 }
-
 export interface IUserSchema {
   dataAuth?: IUser;
   _initialized: boolean;

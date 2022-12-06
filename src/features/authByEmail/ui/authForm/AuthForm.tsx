@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -11,14 +11,15 @@ import {
   authFormReducer,
 } from 'features/authByEmail/model/slices/authSlice';
 import { Button } from 'shared/ui/Button/Button';
-import { Button as ButtonAntd } from 'antd';
+import { Button as ButtonAntd, message, Tooltip } from 'antd';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { authUserByEmail } from 'features/authByEmail/model/services/authByEmail';
+import { authUserByEmail } from '../../model/services/authByEmail';
 import cls from './AuthForm.module.scss';
 import {
   getAuthEmail,
+  getAuthErrors,
   getAuthPassword,
 } from '../../model/selectors/getAuthData';
 import { Modal } from 'shared/ui/Modal/Modal';
@@ -26,7 +27,6 @@ import { Result, ResultStatus } from 'shared/ui/Result';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { OpenOrderModal } from 'widgets/order';
-import { UserRole } from 'entities/User/model/types/user';
 
 export interface authFormProps {
   className?: string;
@@ -40,11 +40,35 @@ const reducers: ReducerList = {
 const authForm = memo((props: authFormProps) => {
   const { className, onSuccess } = props;
   const { t } = useTranslation();
-  const na = useNavigate();
+  const [msgApi, ctxHolder] = message.useMessage();
   const [isSuccessAuth, setIsSuccessAuth] = useState(false);
+  const na = useNavigate();
   const dispatch = useAppDispatch();
   const email = useSelector(getAuthEmail);
   const password = useSelector(getAuthPassword);
+  const errors = useSelector(getAuthErrors);
+
+  useEffect(() => {
+    if (errors.noData) {
+      return msgApi.open({
+        type: 'warning',
+        content: t('Необходимо заполнить все поля!'),
+      });
+    }
+    if (errors.server) {
+      return msgApi.open({
+        type: 'error',
+        content: t('Ошибка сервера. Повторите попытку позже'),
+      });
+    }
+    if (errors.notFond) {
+      return msgApi.open({
+        type: 'error',
+        duration: 4,
+        content: t('Пользователь с такими данными не найден'),
+      });
+    }
+  }, [errors.noData, errors.notFond, errors.server, msgApi, t]);
 
   const onButtonClick = useCallback(async () => {
     const response = await dispatch(authUserByEmail({ email, password }));
@@ -79,24 +103,39 @@ const authForm = memo((props: authFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      {ctxHolder}
       <div className={classNames(cls.authForm, {}, [className])}>
         <Text title={t('Войти в личный кабинет')} className={cls.title} />
-        <Input
-          placeholder={t('Email')}
-          className={cls.input}
-          inputClassName={cls.inputField}
-          placeholderClassName={cls.placeholder}
-          value={email}
-          onChange={onChangeEmail}
-        />
-        <Input
-          placeholder={t('Пароль')}
-          className={cls.input}
-          inputClassName={cls.inputField}
-          placeholderClassName={cls.placeholder}
-          value={password}
-          onChange={onChangePassword}
-        />
+        <Tooltip
+          title={t('Email указан неверно!')}
+          open={errors.email}
+          color='red'
+          placement='right'
+        >
+          <Input
+            placeholder={t('Email')}
+            className={cls.input}
+            inputClassName={cls.inputField}
+            placeholderClassName={cls.placeholder}
+            value={email}
+            onChange={onChangeEmail}
+          />
+        </Tooltip>
+        <Tooltip
+          title={t('Минимальная длина пароля - 6 символов!')}
+          open={errors.password}
+          color='red'
+          placement='right'
+        >
+          <Input
+            placeholder={t('Пароль')}
+            className={cls.input}
+            inputClassName={cls.inputField}
+            placeholderClassName={cls.placeholder}
+            value={password}
+            onChange={onChangePassword}
+          />
+        </Tooltip>
         <div className={cls.footer}>
           <AppLink to='/register' className={cls.register}>
             {t('Регистрация')}
