@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { userActions } from 'entities/User/model/slice/userSlice';
 import { useSelector } from 'react-redux';
 import { getUserInitialized } from 'entities/User';
+import { LangSwitcher } from 'features/lang-switcher';
 
 export default function App() {
   const { theme } = useTheme();
@@ -26,6 +27,7 @@ export default function App() {
       <Suspense fallback=''>
         <div className='content-page'>{initialized && <AppRouter />}</div>
       </Suspense>
+      <LangSwitcher />
       <Footer media={media} />
     </div>
   );

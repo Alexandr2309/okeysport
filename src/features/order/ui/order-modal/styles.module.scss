@@ -4,6 +4,9 @@
   background: #fff;
   box-shadow: 0 0 70px rgb(138 138 138 / 10%);
   border-radius: 16px;
+  max-height: 90vh;
+  margin-bottom: -35px;
+  overflow-y: auto;
 }
 
 .formContent {

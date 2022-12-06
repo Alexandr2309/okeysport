@@ -23,9 +23,7 @@ import cls from './styles.module.scss';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { Text } from 'shared/ui/Text/Text';
 import { TypeEvents } from 'shared/const/events';
-import { Modal } from 'shared/ui/Modal/Modal';
-import { message, Spin, Tooltip } from 'antd';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { message, Tooltip } from 'antd';
 import { PhoneNumberInput } from 'shared/lib/components/input-number';
 
 export interface OrderFormProps {
