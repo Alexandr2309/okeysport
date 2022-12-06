@@ -1,5 +1,7 @@
 .root {
   --image-gap: 30px;
+
+  margin: 100px 0;
 }
 
 .list {
@@ -30,10 +32,19 @@
   }
 }
 
+@media (max-width: 1279px) {
+  .root {
+    margin: 40px 0;
+  }
+}
+
 @media (max-width: 719px) {
   .root {
     --image-gap: 15px;
+
+    margin: 40px 0;
   }
+
   .imgWrapper {
     width: calc(50% - var(--image-gap));
     height: 110px;

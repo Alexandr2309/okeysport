@@ -23,20 +23,22 @@ export const Sidebar = ({ className }: ISidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => SidebarItemsList.map((item) => (
-    <SidebarItem
-      key={item.path}
-      collapsed={collapsed}
-      item={item}
-    />
-  )), [collapsed]);
+  const itemsList = useMemo(
+    () =>
+      SidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} collapsed={collapsed} item={item} />
+      )),
+    [collapsed]
+  );
 
   return (
-    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <div
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+    >
       <Button onClick={toggleCollapse}>{t('Расскрыть')}</Button>
-      <div className={cls.items}>
-        {itemsList}
-      </div>
+      <div className={cls.items}>{itemsList}</div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={cls.lang} />

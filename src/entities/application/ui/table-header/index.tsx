@@ -5,6 +5,7 @@ import { tableHeaders } from './model';
 import { Dispatch, SetStateAction, useCallback, useMemo } from 'react';
 import { SortKey, SortOrder } from '../../model';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { useTranslation } from 'react-i18next';
 
 export interface IAppTableHeaderProps {
   className?: string;
@@ -16,6 +17,7 @@ export interface IAppTableHeaderProps {
 
 export const AppTableHeader = (props: IAppTableHeaderProps) => {
   const { className, sortOrder, setSortKey, currentKey, order } = props;
+  const { t } = useTranslation('requests');
 
   const onChangeSortOrder = useCallback(
     (key: SortKey) => () => {
@@ -58,7 +60,7 @@ export const AppTableHeader = (props: IAppTableHeaderProps) => {
             key={header.id}
             onClick={onChangeSortOrder(header.value)}
           >
-            {header.label}
+            {t(header.label)}
             {header.sortable && <AppHeaderSortIcon header={header} />}
           </th>
         ))}

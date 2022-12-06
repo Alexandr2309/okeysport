@@ -6,13 +6,13 @@ import cls from './Button.module.scss';
 export enum ThemeButton {
   CLEAR = 'clear',
   OUTLINED = 'outlined',
-  DEFAULT = ''
+  DEFAULT = '',
 }
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ThemeButton;
-  type?: 'button' | 'reset' | 'submit'
+  type?: 'button' | 'reset' | 'submit';
 }
 
 export const Button: FC<IButtonProps> = (props) => {
@@ -26,7 +26,7 @@ export const Button: FC<IButtonProps> = (props) => {
   return (
     <button
       {...otherProps}
-      type="button"
+      type='button'
       className={classNames(cls.Button, {}, [className, cls[theme]])}
     >
       {children}

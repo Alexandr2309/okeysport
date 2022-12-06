@@ -13,32 +13,21 @@ export interface ChampionshipProps {
 
 export const Championship = memo((props: ChampionshipProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('services');
 
   return (
     <div className={classNames(cls.Championship, {}, [className])}>
       <Banner className={cls.banner}>
-        <Text
-          className={cls.title}
-          title={t('Организация чемпионатов')}
-        />
+        <Text className={cls.title} title={t('Организация чемпионатов')} />
       </Banner>
       <Container>
-        <Text
-          text={championshipInfo.title}
-          className={cls.listTitle}
-        />
+        <Text text={t(championshipInfo.title)} className={cls.listTitle} />
         <ol className={cls.list}>
           {championshipInfo.list.map((point, index) => (
-            <li key={index}>
-              {point}
-            </li>
+            <li key={index}>{t(point)}</li>
           ))}
         </ol>
-        <Text
-          text={championshipInfo.footer}
-          className={cls.footer}
-        />
+        <Text text={t(championshipInfo.footer)} className={cls.footer} />
       </Container>
     </div>
   );

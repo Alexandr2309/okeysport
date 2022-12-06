@@ -11,17 +11,9 @@ export interface authModalProps {
 }
 
 export const AuthModal = memo((props: authModalProps) => {
-  const {
-    className,
-    isOpen,
-    onClose,
-  } = props;
+  const { className, isOpen, onClose } = props;
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      lazy
-    >
+    <Modal isOpen={isOpen} onClose={onClose} lazy>
       <Suspense fallback={<Loader />}>
         <AuthFormAsync onSuccess={onClose} />
       </Suspense>

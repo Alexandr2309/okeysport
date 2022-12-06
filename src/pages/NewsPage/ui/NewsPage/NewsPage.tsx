@@ -28,7 +28,7 @@ const reducers: ReducerList = {
 
 const NewsPage = memo((props: NewsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('news');
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesListIsLoading);

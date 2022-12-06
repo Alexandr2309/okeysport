@@ -16,7 +16,8 @@ interface IServicesPageProps {
 
 const ServicesPage = (props: IServicesPageProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('services');
+
   return (
     <section className={classNames(cls.ServicesPage, {}, [className])}>
       <ServicesPageBanner />

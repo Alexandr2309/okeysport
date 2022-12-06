@@ -1,8 +1,7 @@
 import { IRegisterUserByEmailProps } from '../../model/services/registerUserByEmail/registerUserByEmail';
 import { ValidateRegisterError } from '../../model/types/registerSchema';
+import { EMAIL_REGEXP } from "shared/const/reg-exp";
 
-const EMAIL_REGEXP =
-  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 export const validateRegisterData = (regData?: IRegisterUserByEmailProps) => {
   if (

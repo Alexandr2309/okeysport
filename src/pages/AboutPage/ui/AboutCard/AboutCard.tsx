@@ -12,34 +12,22 @@ export interface AboutCardProps {
 
 export const AboutCard = memo((props: AboutCardProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('about');
 
-  const renderCard = useCallback((card: ICard) => (
-    <Card
-      className={cls.card}
-      key={card.id}
-    >
-      <Text
-        className={cls.num}
-        title={card.num}
-      />
-      <Text
-        className={cls.title}
-        text={card.title}
-      />
-      <Text
-        className={cls.subtitle}
-        text={card.subtitle}
-      />
-    </Card>
-  ), []);
+  const renderCard = useCallback(
+    (card: ICard) => (
+      <Card className={cls.card} key={card.id}>
+        <Text className={cls.num} title={t(card.num)} />
+        <Text className={cls.title} text={t(card.title)} />
+        <Text className={cls.subtitle} text={t(card.subtitle)} />
+      </Card>
+    ),
+    []
+  );
 
   return (
     <section>
-      <Text
-        title={t('Мы - это:')}
-        className={cls.sectionTitle}
-      />
+      <Text title={t('Мы - это:')} className={cls.sectionTitle} />
       <ul className={classNames(cls.AboutCard, {}, [className])}>
         {aboutCard.map(renderCard)}
       </ul>

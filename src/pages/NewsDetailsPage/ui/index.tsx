@@ -19,7 +19,7 @@ interface INewsDetailsPageProps {
 const NewsDetailsPage = (props: INewsDetailsPageProps) => {
   const { className } = props;
   const { id } = useParams<{ id: string }>();
-  const { t } = useTranslation();
+  const { t } = useTranslation('news-details');
   const [isOpenOrder, setIsOpenOrder] = useState(false);
   const data = useSelector(getArticleDetailsData);
 
@@ -35,9 +35,6 @@ const NewsDetailsPage = (props: INewsDetailsPageProps) => {
     <section className={classNames(cls.root, {}, [className])}>
       <NewsDetailsHeader title={data?.title} />
       <Container>
-        <AppLink to={RoutesPath.news} className={cls.back}>
-          {t('Назад к списку статей')}
-        </AppLink>
         <ArticleDetails id={id!} />
       </Container>
       <Container className={cls.modal}>

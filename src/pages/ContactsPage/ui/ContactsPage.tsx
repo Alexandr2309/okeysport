@@ -7,7 +7,7 @@ import Map from 'shared/ui/Map';
 import cls from './ContactsPage.module.scss';
 
 const ContactsPage = () => {
-  const { t } = useTranslation('contact');
+  const { t } = useTranslation('contacts');
 
   return (
     <section className={cls.ContactsPage}>

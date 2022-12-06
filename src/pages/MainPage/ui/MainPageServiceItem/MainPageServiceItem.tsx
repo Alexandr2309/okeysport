@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { IPageData } from 'shared/const/page/mainPage/model';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './MainPageServiceItem.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export interface MainPageServiceItemProps {
   className?: string;
@@ -10,10 +11,9 @@ export interface MainPageServiceItemProps {
 }
 
 export const MainPageServiceItem = memo((props: MainPageServiceItemProps) => {
-  const {
-    className,
-    item,
-  } = props;
+  const { className, item } = props;
+  const { t } = useTranslation('main');
+
   return (
     <article className={classNames(cls.MainPageServiceItem, {}, [className])}>
       <div className={cls.iconWrapper}>
@@ -21,12 +21,12 @@ export const MainPageServiceItem = memo((props: MainPageServiceItemProps) => {
       </div>
       <div className={cls.infoWrapper}>
         <div className={cls.infoHeader}>
-          <Text title={item.num} className={cls.num} />
-          <Text title={item.title} className={cls.title} />
+          <Text title={t(item.num)} className={cls.num} />
+          <Text title={t(item.title)} className={cls.title} />
         </div>
         <Text
           theme={TextTheme.BLACK}
-          text={item.text}
+          text={t(item.text)}
           className={cls.text}
         />
       </div>

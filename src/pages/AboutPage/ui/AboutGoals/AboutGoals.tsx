@@ -12,23 +12,20 @@ export interface AboutGoalsProps {
 
 export const AboutGoals = memo((props: AboutGoalsProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('about');
 
-  const renderGoalItem = useCallback((goal: IAboutGoal) => (
-    <li
-      className={cls.point}
-      key={goal.id}
-    >
-      {goal.text}
-    </li>
-  ), []);
+  const renderGoalItem = useCallback(
+    (goal: IAboutGoal) => (
+      <li className={cls.point} key={goal.id}>
+        {t(goal.text)}
+      </li>
+    ),
+    []
+  );
 
   return (
     <>
-      <Text
-        title={t('Наши цели')}
-        className={cls.title}
-      />
+      <Text title={t('Наши цели')} className={cls.title} />
       <ul className={classNames(cls.AboutGoals, {}, [className])}>
         {aboutGoals.map(renderGoalItem)}
       </ul>

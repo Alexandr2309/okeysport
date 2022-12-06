@@ -13,7 +13,7 @@ import { Result, ResultStatus } from 'shared/ui/Result';
 import { Button as ButtonAntd } from 'antd';
 
 const MainPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('main');
 
   return (
     <>

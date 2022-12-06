@@ -7,11 +7,6 @@ export interface ContainerProps {
   children: React.ReactNode;
 }
 
-export const Container = ({
-  className,
-  children,
-}: ContainerProps) => (
-  <div className={classNames(cls.Container, {}, [className])}>
-    {children}
-  </div>
+export const Container = ({ className, children }: ContainerProps) => (
+  <div className={classNames(cls.Container, {}, [className])}>{children}</div>
 );

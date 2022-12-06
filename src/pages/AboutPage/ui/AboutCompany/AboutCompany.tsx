@@ -26,11 +26,7 @@ export const AboutCompany = memo((props: AboutCompanyProps) => {
       <div className={cls.images}>
         {aboutCompanyInfo.images.map((image, i) => (
           <div className={cls.imgWrapper} key={i}>
-            <img
-              src={image.img}
-              alt={image.alt}
-              className={cls.img}
-            />
+            <img src={image.img} alt={image.alt} className={cls.img} />
           </div>
         ))}
       </div>

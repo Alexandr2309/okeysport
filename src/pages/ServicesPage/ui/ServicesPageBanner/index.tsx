@@ -9,10 +9,7 @@ const ServicesPageBanner = () => {
 
   return (
     <Banner>
-      <Text
-        className={cls.title}
-        title={t('Услуги')}
-      />
+      <Text className={cls.title} title={t('Услуги')} />
     </Banner>
   );
 };

@@ -17,12 +17,8 @@ export default {
 
   clearMocks: true,
   testEnvironment: 'jsdom',
-  moduleDirectories: [
-    'node_modules',
-  ],
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\',
-  ],
+  moduleDirectories: ['node_modules'],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -33,9 +29,7 @@ export default {
     'json',
     'node',
   ],
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   rootDir: '../../',
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

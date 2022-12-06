@@ -1,8 +1,7 @@
 import { IAuthUserByEmailProps } from '../model/services/authByEmail';
 import { ValidateAuthErrors } from 'features/authByEmail';
+import { EMAIL_REGEXP } from "shared/const/reg-exp";
 
-const EMAIL_REGEXP =
-  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 export const validateAuthData = (authData?: IAuthUserByEmailProps) => {
   if (!authData || !Object.values(authData).find((item) => item.length > 0)) {
     return [ValidateAuthErrors.NO_DATA];

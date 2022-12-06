@@ -13,13 +13,13 @@ export interface MainPageBannerProps {
 
 export const MainPageBanner = memo((props: MainPageBannerProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('main');
 
   return (
     <Banner wrapperCls={cls.contentWrapper}>
       <div className={cls.textWrapper}>
-        <Text title={mainPageBannerData.title} className={cls.title} />
-        <Text text={mainPageBannerData.text} className={cls.text} />
+        <Text title={t(mainPageBannerData.title)} className={cls.title} />
+        <Text text={t(mainPageBannerData.text)} className={cls.text} />
       </div>
       <OpenOrderModal className={cls.sendBtn}>
         {t('Организовать турнир')}

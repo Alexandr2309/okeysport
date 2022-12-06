@@ -26,6 +26,7 @@ import { TypeEvents } from 'shared/const/events';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { message, Spin, Tooltip } from 'antd';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { PhoneNumberInput } from 'shared/lib/components/input-number';
 
 export interface OrderFormProps {
   className?: string;
@@ -119,20 +120,16 @@ const OrderForm = (props: OrderFormProps) => {
               placeholder={t('Имя')}
             />
           </Tooltip>
-          <Tooltip
-            title={t('Поле заполнено не полностью или не верно!')}
+          <PhoneNumberInput
+            title={t('Поле заполнено не полностью!')}
             open={errors.phone}
             color='red'
             placement='topRight'
-          >
-            <Input
-              type='text'
-              value={phone}
-              className={cls.inp}
-              onChange={onChangePhone}
-              placeholder={t('Номер телефона')}
-            />
-          </Tooltip>
+            value={phone}
+            className={cls.inp}
+            onChange={onChangePhone}
+            placeholder={t('Номер телефона')}
+          />
           <Tooltip
             title={t('Некорректный email!')}
             open={errors.email}

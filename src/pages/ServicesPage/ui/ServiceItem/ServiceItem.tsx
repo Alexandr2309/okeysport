@@ -13,11 +13,8 @@ export interface IServiceItem {
 }
 
 export const ServiceItem = memo((props: IServiceItem) => {
-  const {
-    className,
-    service,
-  } = props;
-  const { t } = useTranslation();
+  const { className, service } = props;
+  const { t } = useTranslation('services');
 
   return (
     <Card className={classNames(cls.ServiceItem, {}, [className])}>
@@ -25,19 +22,10 @@ export const ServiceItem = memo((props: IServiceItem) => {
         <img src={service.img} alt={service.title} />
       </div>
       <div className={cls.infoWrapper}>
-        <Text
-          text={t(service.title)}
-          className={cls.title}
-        />
-        <Text
-          className={cls.text}
-          text={t(service.text)}
-        />
-        <AppLink
-          className={cls.link}
-          to={service.link.path}
-        >
-          {service.link.text}
+        <Text text={t(service.title)} className={cls.title} />
+        <Text className={cls.text} text={t(service.text)} />
+        <AppLink className={cls.link} to={service.link.path}>
+          {t(service.link.text)}
         </AppLink>
       </div>
     </Card>

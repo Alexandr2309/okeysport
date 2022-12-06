@@ -1,9 +1,6 @@
 import { ValidateOrderErrors } from 'entities/order';
 import { ISendOrderArgs } from '../../model/services/sendOrder';
-
-const EMAIL_REGEXP =
-  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-const PHONE_REGEXP = /^(\+7)(\d{3})(\d{3})(\d{2})(\d{2})$/;
+import { EMAIL_REGEXP, PHONE_REGEXP } from 'shared/const/reg-exp';
 
 export const validateOrderData = (orderData?: ISendOrderArgs) => {
   if (
@@ -27,7 +24,7 @@ export const validateOrderData = (orderData?: ISendOrderArgs) => {
     errors.push(ValidateOrderErrors.INCORRECT_EMAIL);
   }
 
-  if (!PHONE_REGEXP.test(phone)) {
+  if (!PHONE_REGEXP.test('+' + phone.replace(/\D/g, ''))) {
     errors.push(ValidateOrderErrors.INCORRECT_PHONE);
   }
 

@@ -5,10 +5,10 @@ import buildResolvers from './buildResolvers';
 import type { IBuildOptions } from './types/config';
 import buildDevServer from './buildDevServer';
 
-export default function buildWebpackConfig(options: IBuildOptions): webpack.Configuration {
-  const {
-    mode, paths, isDev, port,
-  } = options;
+export default function buildWebpackConfig(
+  options: IBuildOptions
+): webpack.Configuration {
+  const { mode, paths, isDev, port } = options;
 
   return {
     mode,

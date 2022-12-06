@@ -14,7 +14,7 @@ export interface MainPageInfoProps {
 
 export const MainPageInfo = memo((props: MainPageInfoProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('main');
 
   const renderItem = useCallback(
     (item: IPageData) => <MainPageServiceItem item={item} key={item.title} />,

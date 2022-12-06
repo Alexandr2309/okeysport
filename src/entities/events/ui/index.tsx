@@ -2,7 +2,7 @@ import cls from './styles.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
-import { TypeEvents } from "shared/const/events";
+import { TypeEvents } from 'shared/const/events';
 
 export interface IEventsSelectProps {
   className?: string;
@@ -13,7 +13,7 @@ export interface IEventsSelectProps {
 const options = [
   { value: TypeEvents.CHAMPIONSHIP, content: 'Чемпионат' },
   { value: TypeEvents.COMPETITION, content: 'Соревнование' },
-  { value: TypeEvents.OLYMPICS, content: 'Спортакиада' },
+  { value: TypeEvents.OLYMPICS, content: 'Спартакиада' },
   { value: TypeEvents.TOURNAMENT, content: 'Турнир' },
 ];
 

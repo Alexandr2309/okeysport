@@ -13,23 +13,16 @@ export interface OlympicsProps {
 
 export const Olympics = memo((props: OlympicsProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('services');
 
   return (
     <div className={classNames(cls.Olympics, {}, [className])}>
       <Banner className={cls.banner}>
-        <Text
-          className={cls.title}
-          title={t('Организация спартакиад')}
-        />
+        <Text className={cls.title} title={t('Организация спартакиад')} />
       </Banner>
       <Container>
         {olympicsInfo.map((paragraph, index) => (
-          <Text
-            key={index}
-            text={t(paragraph)}
-            className={cls.paragraph}
-          />
+          <Text key={index} text={t(paragraph)} className={cls.paragraph} />
         ))}
       </Container>
     </div>

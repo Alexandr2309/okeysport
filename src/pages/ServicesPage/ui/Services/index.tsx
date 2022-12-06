@@ -16,10 +16,7 @@ export const Services = (props: IServicesProps) => {
       <Container>
         <ul className={cls.list}>
           {servicesInfo.map((service) => (
-            <li
-              className={cls.item}
-              key={service.title}
-            >
+            <li className={cls.item} key={service.title}>
               <ServiceItem service={service} />
             </li>
           ))}

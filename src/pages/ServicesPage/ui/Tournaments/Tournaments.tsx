@@ -13,7 +13,7 @@ export interface TournamentsProps {
 
 export const Tournaments = memo((props: TournamentsProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('services');
 
   return (
     <div className={classNames(cls.Tournament, {}, [className])}>
@@ -25,11 +25,7 @@ export const Tournaments = memo((props: TournamentsProps) => {
       </Banner>
       <Container>
         {tournamentsInfo.map((paragraph, index) => (
-          <Text
-            key={index}
-            text={t(paragraph)}
-            className={cls.paragraph}
-          />
+          <Text key={index} text={t(paragraph)} className={cls.paragraph} />
         ))}
       </Container>
     </div>

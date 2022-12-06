@@ -17,14 +17,9 @@ export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
   };
 
   return (
-    <AppLink
-      className={classNames(cls.SidebarItem, mods, [])}
-      to={item.path}
-    >
+    <AppLink className={classNames(cls.SidebarItem, mods, [])} to={item.path}>
       <item.Icon className={cls.icon} />
-      <span className={cls.link}>
-        {t(item.text)}
-      </span>
+      <span className={cls.link}>{t(item.text)}</span>
     </AppLink>
   );
 };
