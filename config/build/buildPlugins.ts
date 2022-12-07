@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import type { IBuildOptions } from './types/config';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export default function buildPlugins({
   paths,
@@ -19,6 +20,9 @@ export default function buildPlugins({
     }),
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
+    }),
+    new CopyPlugin({
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
   ];
 

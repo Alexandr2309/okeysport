@@ -10,6 +10,8 @@ export type IBuildPaths = {
   output: string;
   html: string;
   src: string;
+  locales: string;
+  buildLocales: string;
 };
 
 export type IBuildOptions = {
