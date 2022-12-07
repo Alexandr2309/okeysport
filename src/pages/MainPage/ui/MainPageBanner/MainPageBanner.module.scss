@@ -8,17 +8,17 @@
   color: #fff;
 }
 
-.text p {
+.title > p {
+  font: var(--font-xl);
+  font-weight: 600;
+}
+
+.text > p {
   font: var(--font-m);
   font-style: italic;
   margin-top: 20px;
   margin-bottom: 30px;
   font-weight: 400;
-}
-
-.title p {
-  font: var(--font-xl);
-  font-weight: 600;
 }
 
 .textWrapper {
