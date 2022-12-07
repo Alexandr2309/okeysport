@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IUserSchema } from '../types/User';
+import { IUserSchema } from '../types/user';
 import { USER_LOCALSTORAGE_ITEM } from 'shared/const/local-storage';
 
 const initialState: IUserSchema = {
