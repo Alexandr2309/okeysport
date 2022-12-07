@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+
 import React, { ReactNode, useCallback, useState } from 'react';
 import { Button } from 'shared/ui/Button/Button';
 import cls from './styles.module.scss';
@@ -9,8 +10,6 @@ import { Result, ResultStatus } from 'shared/ui/Result';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
-import { Spin } from 'antd';
-import { Loader } from 'shared/ui/Loader/Loader';
 import { PageLoader } from 'widgets/PageLoader';
 
 export interface ISendOrderProps {

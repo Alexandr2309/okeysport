@@ -3,8 +3,6 @@ import { Text } from 'shared/ui/Text/Text';
 import { Banner } from 'shared/ui/Banner/Banner';
 import React from 'react';
 import cls from './styles.module.scss';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 
 export interface INewsDetailsHeaderProps {
   className?: string;
@@ -15,12 +13,12 @@ export const NewsDetailsHeader = ({
   className,
   title,
 }: INewsDetailsHeaderProps) => {
-  const { t } = useTranslation('about');
+  const { t } = useTranslation('news-details');
 
   return (
     <>
       <Banner wrapperCls={cls.contentWrapper} className={cls.banner}>
-        <Text className={cls.title} title={title} />
+        <Text className={cls.title} title={t(title || '')} />
       </Banner>
     </>
   );

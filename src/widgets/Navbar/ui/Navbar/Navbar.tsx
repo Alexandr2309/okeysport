@@ -86,7 +86,7 @@ export const Navbar = ({ className, media }: INavbarProps) => {
     return (
       <>
         <Popconfirm
-          title='Вы точно хотите выйти'
+          title={t('Вы точно хотите выйти')}
           open={open}
           onConfirm={onLogout}
           onCancel={onClose}
@@ -97,7 +97,7 @@ export const Navbar = ({ className, media }: INavbarProps) => {
         <Text text={authData?.username || ''} className={cls.username} />
       </>
     );
-  }, [authData?.username, onClose, onLogout, onOpen, open]);
+  }, [authData?.username, onClose, onLogout, onOpen, open, t]);
 
   return (
     <nav>
