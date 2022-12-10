@@ -52,9 +52,9 @@ export const PhoneNumberInput = (props: IPhoneNumberInputProps) => {
         inputRef.current!.value
       );
 
-      if (!PHONE_REGEXP.test('+' + formattedPhone.replace(/\D/g, ''))) {
-        onChange?.(formattedPhone);
-      }
+      // if (!PHONE_REGEXP.test('+' + formattedPhone.replace(/\D/g, ''))) {
+      onChange?.(formattedPhone);
+      // }
     }
   }, [inputRef, onChange]);
 

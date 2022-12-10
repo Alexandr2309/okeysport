@@ -20,27 +20,11 @@
     },
     {
       "name": "Александр",
-      "email": "hfdsf.dd@gmail.com",
-      "phone": "+79242202235",
-      "comment": "",
-      "type": "CHAMPIONSHIP",
-      "id": "1ni-9OB"
-    },
-    {
-      "name": "Александр",
-      "email": "fsdfd.kede@mail.ru",
-      "phone": "+79294031664",
+      "email": "example@mail.ru",
+      "phone": "+7 (924) 2202235",
       "comment": "",
       "type": "OLYMPICS",
-      "id": "WMRhOQF"
-    },
-    {
-      "name": "Александр",
-      "email": "saha.kol04@gmail.com",
-      "phone": "+7 (920) 2233442",
-      "comment": "",
-      "type": "CHAMPIONSHIP",
-      "id": "OQ6WGOB"
+      "id": "2NSnep0"
     }
   ],
   "articles": [
